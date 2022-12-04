@@ -1,16 +1,14 @@
-﻿using System;
-using clean_architecture_mapping_demo.Source.Vehicle.Domain.Model;
+﻿
 using Hexacleanws.Vehicle.Domain.Model;
 using Xunit;
 
-namespace clean_architecture_mapping_demo.Test.Vehicle
+namespace Hexacleanws.Vehicle.Test.Vehicle
 {
     public class DomainRing_Task_1_1 : BaseTest
     {
-  
 
         [Fact]
-        void should_throw_illegal_state_exception_due_to_invalid_vin()
+        void should_throw_a_exception_due_to_invalid_vin()
         {
             Assert.Throws<Exception>(() => new VehicleRootEntity(new Vin("hgjhgkjhkhkhjh")));
         }
@@ -29,7 +27,6 @@ namespace clean_architecture_mapping_demo.Test.Vehicle
             Assert.Equal(vehicle.vin, vin);
         }
 
-     
     }
 }
 

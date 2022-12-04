@@ -4,6 +4,6 @@ namespace Hexacleanws.Vehicle.UseCase.In
 {
     public interface VehicleQuery
     {
-        public Domain.Model.VehicleRootEntity Fetch(string fahrgestellnummer);
+        VehicleRootEntity FindByVin(Vin vin);
     }
 }

@@ -6,16 +6,16 @@ namespace Hexacleanws.Vehicle.Domain.Service
 {
     public class FahrzeugService : VehicleQuery
     {
-        private readonly VehicleDbQuery fetchExternalFahrzeug;
+        private readonly VehicleDbQuery dbQuery;
 
-        public FahrzeugService(VehicleDbQuery fetchExternalFahrzeug)
+        public FahrzeugService(VehicleDbQuery dbQuery)
         {
-            this.fetchExternalFahrzeug = fetchExternalFahrzeug;
+            this.dbQuery = dbQuery;
         }
 
-        public Model.VehicleRootEntity Fetch(string fahrgestellnummer)
+        public Model.VehicleRootEntity FindByVin(Vin vin)
         {
-            return fetchExternalFahrzeug.Fetch(fahrgestellnummer);
+            return dbQuery.FindVehicleByVin(vin);
         }
     }
 }

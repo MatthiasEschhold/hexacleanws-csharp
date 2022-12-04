@@ -1,6 +1,5 @@
 ﻿
-
-using clean_architecture_mapping_demo.Source.Vehicle.Domain.Model;
+using System.Text.RegularExpressions;
 
 namespace Hexacleanws.Vehicle.Domain.Model
 {

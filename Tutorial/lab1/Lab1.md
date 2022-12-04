@@ -135,7 +135,7 @@ Additionally the adapter ring is also separated in sub-structure following the s
 // WP0ZZZ99ZTS392155
 // WBAOLZ99ZTS349156
 
-"(?=.*\\d|=.*[A-Z])(?=.*[A-Z])[A-Z0-9]{17}"
+"(?=.*\d|=.*[A-Z])(?=.*[A-Z])[A-Z0-9]{17}"
 
 ```
 

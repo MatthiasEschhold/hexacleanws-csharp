@@ -1,5 +1,5 @@
 ﻿using System;
-namespace clean_architecture_mapping_demo.Test
+namespace Hexacleanws.Vehicle.Test
 {
     public class BaseTest
     {

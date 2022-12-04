@@ -129,7 +129,7 @@ Additionally the adapter ring is also separated in sub-structure following the s
 5. A vehicle identification number is valid when the value follows the regex pattern below. Throw an
    IllegalStateException in case of a validations error.
 
-```java
+```c#
 
 // examples
 // WP0ZZZ99ZTS392155
@@ -213,7 +213,7 @@ implementation, but consider the time.
 
 ```java
 
-public Vehicle findByVin(Vin vin){...}
+public Vehicle FindByVin(Vin vin){...}
 
 ```
 

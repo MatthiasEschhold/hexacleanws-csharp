@@ -1,21 +1,14 @@
 ﻿using Hexacleanws.Vehicle.Domain.Model;
-using Hexacleanws.Vehicle.UseCase.In;
-using Hexacleanws.Vehicle.UseCase.Out;
 
 namespace Hexacleanws.Vehicle.Domain.Service
 {
-    public class FahrzeugService : VehicleQuery
+    public class VehicleService
     {
-        private readonly VehicleDbQuery dbQuery;
-
-        public FahrzeugService(VehicleDbQuery dbQuery)
+        
+        public VehicleRootEntity FindByVin(Vin vin)
         {
-            this.dbQuery = dbQuery;
+            return new  (new Vin("WP0ZZZ99ZTS392155"));
         }
 
-        public Model.VehicleRootEntity FindByVin(Vin vin)
-        {
-            return dbQuery.FindVehicleByVin(vin);
-        }
     }
 }

@@ -28,15 +28,9 @@
   <ItemGroup>
     <None Remove="Tutorial\" />
     <None Remove="Test\Vehicle\" />
-    <None Remove="Source\Vehicle\Adapter\Out\Db\" />
-    <None Remove="Source\GarageOrder\" />
-    <None Remove="Source\PartsCatalogue\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Tutorial\" />
     <Folder Include="Test\Vehicle\" />
-    <Folder Include="Source\Vehicle\Adapter\Out\Db\" />
-    <Folder Include="Source\GarageOrder\" />
-    <Folder Include="Source\PartsCatalogue\" />
   </ItemGroup>
 </Project>

@@ -1,9 +1,7 @@
-﻿using clean_architecture_mapping_demo.Source.Vehicle.Domain.dto;
-using Hexacleanws.Vehicle.Adapter.In.Web;
+﻿using Hexacleanws.Vehicle.Adapter.In.Web;
 using Hexacleanws.Vehicle.Adapter.Out.Db;
+using Hexacleanws.Vehicle.Domain.dto;
 using Hexacleanws.Vehicle.Domain.Model;
-using Microsoft.VisualStudio.TestPlatform.ObjectModel;
-using System.Collections;
 
 namespace Hexacleanws.Vehicle.Test
 {
@@ -44,29 +42,47 @@ namespace Hexacleanws.Vehicle.Test
         }
         protected VehicleRootEntity CreateVehicle()
         {
-            return new VehicleRootEntity(new Vin(VIN), CreateVehicleMotionData(), CreateVehicleMasterData());
+            return new VehicleRootEntity(new Vin(VIN), CreateVehicleMotionData(), CreateVehicleMasterData(), true);
         }
 
         protected VehicleMasterData CreateVehicleMasterData()
         {
-            return new VehicleMasterData(CreateEquipmentList(), 
+            return new VehicleMasterData(new VehicleModel(VEHICLE_MODEL_DESCRIPTION_TEST_VALUE, VEHICLE_MODEL_TYPE_TEST_VALUE),
+                new SerialNumber(SERIAL_NUMBER_TEST_VALUE), new MileageUnit(MileageUnitValue.KM));
+        }
+
+        protected VehicleMasterDataDomainDto CreateVehicleMasterDataDto()
+        {
+            return new VehicleMasterDataDomainDto(CreateEquipmentList(), 
                 new VehicleModel(VEHICLE_MODEL_DESCRIPTION_TEST_VALUE, VEHICLE_MODEL_TYPE_TEST_VALUE),
                 new SerialNumber(SERIAL_NUMBER_TEST_VALUE), new MileageUnit(MileageUnitValue.KM));
         }
 
-        protected List<VehicleMasterDataDomainDto> CreateEquipmentList()
+        protected VehicleMasterDataDomainDto CreateVehicleMasterDataWithout2GSupport()
         {
-            List<VehicleMasterDataDomainDto> equipmentList = new List<VehicleMasterDataDomainDto> {
-            CreateEquipment("LT317", "Live Traffic"),
-            CreateEquipment("GS200", "2G Adapter"),
-            CreateEquipment("KL457", "Sport Chassis M Deluxe")};
-            return equipmentList;
+            return new VehicleMasterDataDomainDto(CreateEquipmentListWithout2GSupport(),
+                new VehicleModel(VEHICLE_MODEL_DESCRIPTION_TEST_VALUE, VEHICLE_MODEL_TYPE_TEST_VALUE),
+                new SerialNumber(SERIAL_NUMBER_TEST_VALUE), new MileageUnit(MileageUnitValue.KM));
         }
 
-        private VehicleMasterDataDomainDto CreateEquipment(String code, String description)
+        private List<string> CreateEquipmentListWithout2GSupport()
         {
-            VehicleMasterDataDomainDto equipment = new VehicleMasterDataDomainDto(new EquipmentCodeDto(code), description);
-            return equipment;
+            List<string> equipmentList = new List<string> {
+                "LT317",
+                "KL457"
+            };
+
+            return equipmentList;
+        }
+        protected List<string> CreateEquipmentList()
+        {
+            List<string> equipmentList = new List<string> {
+                "LT317",
+                "KL457",
+                "GS200"
+            };
+
+            return equipmentList;
         }
 
         protected VehicleMotionData CreateVehicleMotionData()
@@ -74,6 +90,14 @@ namespace Hexacleanws.Vehicle.Test
             return new VehicleMotionData(
                 new LicensePlate(LICENSE_PLATE_TEST_VALUE), 
                 new Mileage(MILEAGE_TEST_VALUE));
+        }
+
+        protected VehicleMotionDataResource CreateVehicleMotionDataResource()
+        {
+            VehicleMotionDataResource resource = new VehicleMotionDataResource();
+            resource.Mileage = MILEAGE_TEST_VALUE;
+            resource.LicensePlate = LICENSE_PLATE_TEST_VALUE;
+            return resource;
         }
 
         protected VehicleDbEntity CreateVehicleDbEntity()

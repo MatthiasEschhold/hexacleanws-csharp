@@ -1,16 +1,12 @@
-﻿
-using Hexacleanws.Vehicle.Adapter.Out.Db;
+﻿using Hexacleanws.Vehicle.Adapter.Out.Db;
 using Hexacleanws.Vehicle.Domain.Model;
 using Hexacleanws.Vehicle.Test;
-using Moq;
 using Xunit;
 
-namespace Hexacleanws.Test.Vehicle.Lab4
+namespace Hexacleanws.Test.Vehicle.Lab5
 {
-    public class OutputAdapter_Task_4_4 : BaseTest
+    public class OutputAdapter_Task_5_1 : BaseTest
     {
-        public OutputAdapter_Task_4_4() { }
-
         [Fact]
         public void vehicle_repository_should_return_a_valid_vehicle()
         {
@@ -24,4 +20,3 @@ namespace Hexacleanws.Test.Vehicle.Lab4
         }
     }
 }
-

@@ -1,5 +1,5 @@
-﻿using AutoMapper;
-
+﻿
+using Hexacleanws.Vehicle.Domain.dto;
 using Hexacleanws.Vehicle.Domain.Model;
 using Hexacleanws.Vehicle.UseCase.Out;
 
@@ -7,22 +7,17 @@ namespace Hexacleanws.Vehicle.Adapter.Out.ServiceClient
 {
     public class VehicleMasterDataServiceClient : FetchVehicleMasterData
     {
-        private static readonly MapperConfiguration Config = new(cfg => {
-            cfg.AddProfile<VehicleMasterDataToVehicleDataDtoMapper>();
-        });
-
-        private Mapper mapper;
-
-        public VehicleMasterDataServiceClient()
+        private readonly VehicleMasterDataToVehicleDataDtoMapper Mapper;
+        public VehicleMasterDataServiceClient(VehicleMasterDataToVehicleDataDtoMapper mapper)
         {
-            mapper = new Mapper(Config);
+            Mapper = mapper;
         }
 
         public VehicleMasterDataDomainDto Fetch(Vin vin)
         {
             //call a external service
             //make http client stuff
-            return mapper.Map<VehicleMasterData>(SimulatedThirdPartyServiceCallForVehicleDataDto(vin));
+            return Mapper.MapVehicleDataDtoToVehicleMasterData(SimulatedThirdPartyServiceCallForVehicleDataDto(vin));
         }
 
         private VehicleDataDto SimulatedThirdPartyServiceCallForVehicleDataDto(Vin vin)

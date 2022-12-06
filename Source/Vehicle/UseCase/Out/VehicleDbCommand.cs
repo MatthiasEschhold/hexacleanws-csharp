@@ -2,8 +2,8 @@
 
 namespace Hexacleanws.Vehicle.UseCase.Out
 {
-    public interface VehicleDbQuery
+    public interface VehicleDbCommand
     {
-        VehicleRootEntity FindVehicleByVin(Vin  vin);
+        VehicleRootEntity Save(VehicleRootEntity vehicle);
     }
 }

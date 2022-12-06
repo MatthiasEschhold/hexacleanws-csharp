@@ -6,28 +6,38 @@ using Hexacleanws.Vehicle.Domain.Model;
 
 namespace Hexacleanws.Vehicle.Adapter.In.Web
 {
-    [ApiController]
-    [Route("[controller]")]
+    //[ApiController]
+    //[Route("[controller]")]
     public class VehicleController : ControllerBase
     {
-        private readonly VehicleQuery fetchVehicle;
-        private readonly ILogger<VehicleController> logger;
+        private readonly VehicleQuery VehicleQuery;
+        private readonly VehicleCommand VehicleCommand;
+        private readonly VehicleToVehicleResourceMapper Mapper;
 
-        private static readonly MapperConfiguration Config = new(cfg => cfg.CreateMap<VehicleRootEntity, VehicleResource>());
-        private Mapper mapper;
-
-        public VehicleController(VehicleQuery fetchVehicle, ILogger<VehicleController> logger)
+        public VehicleController(VehicleQuery vehicleQuery, VehicleCommand vehicleCommand, VehicleToVehicleResourceMapper mapper)
         {
-            this.fetchVehicle = fetchVehicle;
-            this.mapper = new Mapper(Config);
-            this.logger = logger;
+            VehicleQuery = vehicleQuery;
+            VehicleCommand = vehicleCommand;
+            Mapper = mapper;
         }
 
-        [HttpGet(Name = "GetVehicle")]
+        //[HttpGet(Name = "GetVehicle")]
         public VehicleResource GetVehicle(string id)
         {
-            var fahrzeug = fetchVehicle.Fetch(id);
-            return mapper.Map<VehicleResource>(fahrzeug);
+            var vehicle = VehicleQuery.FindByVin(new Vin(id));
+            return Mapper.MapVehicleToVehicleResource(vehicle);
+        }
+
+        public VehicleResource UpdateVehicle(String vin, VehicleMotionDataResource vehicleMotionData )
+        {
+            VehicleRootEntity vehicle = VehicleCommand.Update(new Vin(vin), Mapper.MapVehicleMotionDataResourceToVehicleMotionData(vehicleMotionData));
+            return Mapper.MapVehicleToVehicleResource(vehicle);
+        }
+
+        public VehicleResource CreateVehicle(VehicleResource resource)
+        {
+            VehicleRootEntity vehicle = VehicleCommand.Create(Mapper.MapVehicleResourceToVehicle(resource));
+            return Mapper.MapVehicleToVehicleResource(vehicle);
         }
 
     }

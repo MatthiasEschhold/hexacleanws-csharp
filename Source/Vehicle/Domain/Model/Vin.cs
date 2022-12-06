@@ -1,19 +1,30 @@
-﻿using System;
+﻿using System.Text.RegularExpressions;
 
-namespace clean_architecture_mapping_demo.Source.Vehicle.Domain.Model
+namespace Hexacleanws.Vehicle.Domain.Model
 {
-	public class Vin
-	{
-		public String value { get;}
+    public class Vin
+    {
+        public String Value { get; }
 
         public Vin(String value)
-		{
-			this.value = value;
-			if(this.value == null)
-			{
-				throw new Exception("Vin should not be null");
-			}
-		}
-	}
-}
+        {
+            Value = value;
+            Validate();
+        }
 
+        private void Validate()
+        {
+            Regex vinRegex = new Regex(@"(?=.*\d|=.*[A-Z])(?=.*[A-Z])[A-Z0-9]{17}");
+            if (!vinRegex.IsMatch(Value))
+            {
+                throw new Exception("Vin is not valid!");
+            }
+        }
+
+        public override bool Equals(object? obj)
+        {
+            return obj is Vin vin &&
+                   Value == vin.Value;
+        }
+    }
+}

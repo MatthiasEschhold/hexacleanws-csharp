@@ -1,11 +1,11 @@
 ﻿
+using clean_architecture_mapping_demo.Source.Vehicle.Domain.Model;
+using clean_architecture_mapping_demo.Source.Vehicle.UseCase.In;
 using Hexacleanws.Vehicle.Adapter.In.Web;
-using Hexacleanws.Vehicle.Domain.Model;
-using Hexacleanws.Vehicle.UseCase.In;
 using Moq;
 using Xunit;
 
-namespace Hexacleanws.Vehicle.Test.Vehicle.Lab4
+namespace clean_architecture_mapping_demo.Test.Vehicle.Lab4
 {
     public class InputAdapter_Task_4_2 : BaseArchTest
     {
@@ -22,7 +22,7 @@ namespace Hexacleanws.Vehicle.Test.Vehicle.Lab4
                 new VehicleToVehicleResourceMapper()).GetVehicle(VIN);
 
             Assert.Equal(vehicle.Vin.Value, actualVehicle.Vin);
-           //Assert.Equal(vehicle.VehicleMasterData.MileageUnit.Value.ToString, actualVehicle.MileageUnit);
+            //Assert.Equal(vehicle.VehicleMasterData.MileageUnit.Value.ToString, actualVehicle.MileageUnit);
             Assert.Equal(vehicle.VehicleMasterData.SerialNumber.Value, actualVehicle.SerialNumber);
             Assert.Equal(vehicle.VehicleMasterData.VehicleModel.ModelType, actualVehicle.VehicleModelName);
             Assert.Equal(vehicle.VehicleMasterData.VehicleModel.ModelDescription, actualVehicle.VehicleModelDescription);

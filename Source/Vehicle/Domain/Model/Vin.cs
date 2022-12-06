@@ -1,12 +1,12 @@
 ﻿using System.Text.RegularExpressions;
 
-namespace Hexacleanws.Vehicle.Domain.Model
+namespace clean_architecture_mapping_demo.Source.Vehicle.Domain.Model
 {
     public class Vin
     {
-        public String Value { get; }
+        public string Value { get; }
 
-        public Vin(String value)
+        public Vin(string value)
         {
             Value = value;
             Validate();

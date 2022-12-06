@@ -1,10 +1,8 @@
-﻿using Hexacleanws.Vehicle.Adapter.In.Web;
-using Hexacleanws.Vehicle.Adapter.Out.Db;
-using Hexacleanws.Vehicle.Domain.Model;
-using Microsoft.VisualStudio.TestPlatform.ObjectModel;
-using System.Collections;
+﻿using clean_architecture_mapping_demo.Source.Vehicle.Adapter.In.Web;
+using clean_architecture_mapping_demo.Source.Vehicle.Adapter.Out.Db;
+using clean_architecture_mapping_demo.Source.Vehicle.Domain.Model;
 
-namespace Hexacleanws.Vehicle.Test
+namespace clean_architecture_mapping_demo.Test
 {
     public class BaseTest
     {
@@ -48,7 +46,7 @@ namespace Hexacleanws.Vehicle.Test
 
         protected VehicleMasterData CreateVehicleMasterData()
         {
-            return new VehicleMasterData(CreateEquipmentList(), 
+            return new VehicleMasterData(CreateEquipmentList(),
                 new VehicleModel(VEHICLE_MODEL_DESCRIPTION_TEST_VALUE, VEHICLE_MODEL_TYPE_TEST_VALUE),
                 new SerialNumber(SERIAL_NUMBER_TEST_VALUE), new MileageUnit(MileageUnitValue.KM));
         }
@@ -62,7 +60,7 @@ namespace Hexacleanws.Vehicle.Test
             return equipmentList;
         }
 
-        private Equipment CreateEquipment(String code, String description)
+        private Equipment CreateEquipment(string code, string description)
         {
             Equipment equipment = new Equipment(new EquipmentCode(code), description);
             return equipment;
@@ -71,7 +69,7 @@ namespace Hexacleanws.Vehicle.Test
         protected VehicleMotionData CreateVehicleMotionData()
         {
             return new VehicleMotionData(
-                new LicensePlate(LICENSE_PLATE_TEST_VALUE), 
+                new LicensePlate(LICENSE_PLATE_TEST_VALUE),
                 new Mileage(MILEAGE_TEST_VALUE));
         }
 

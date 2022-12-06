@@ -1,6 +1,6 @@
-﻿using Hexacleanws.Vehicle.Domain.Model;
+﻿using clean_architecture_mapping_demo.Source.Vehicle.Domain.Model;
 
-namespace Hexacleanws.Vehicle.UseCase.In
+namespace clean_architecture_mapping_demo.Source.Vehicle.UseCase.In
 {
     public interface VehicleQuery
     {

@@ -1,10 +1,11 @@
-﻿using Hexacleanws.Vehicle.Domain.Model;
-using Hexacleanws.Vehicle.UseCase.In;
-using Hexacleanws.Vehicle.UseCase.Out;
+﻿using AutoMapper;
+using clean_architecture_mapping_demo.Source.Vehicle.Domain.Model;
+using clean_architecture_mapping_demo.Source.Vehicle.UseCase.In;
+using clean_architecture_mapping_demo.Source.Vehicle.UseCase.Out;
 
-namespace Hexacleanws.Vehicle.Domain.Service
+namespace clean_architecture_mapping_demo.Source.Vehicle.Domain.Service
 {
-    public class VehicleQueryService : VehicleQuery
+    public class VehicleQueryService : VehicleQuery, FetchVehicleByLicensePlate
     {
         private readonly VehicleDbQuery DbQuery;
         private readonly FetchVehicleMasterData FetchVehicleMasterData;
@@ -13,6 +14,13 @@ namespace Hexacleanws.Vehicle.Domain.Service
         {
             DbQuery = dbQuery;
             FetchVehicleMasterData = fetchVehicleMasterData;
+        }
+
+        public VehicleRootEntity FetchByLicensePlate(LicensePlate licensePlate)
+        {
+            VehicleRootEntity rootEntity = DbQuery.FindByLicensePlate(licensePlate);
+            rootEntity.AddVehicleMasterData(FetchVehicleMasterData.Fetch(rootEntity.Vin));
+            return rootEntity;
         }
 
         public VehicleRootEntity FindByVin(Vin vin)

@@ -1,4 +1,4 @@
-﻿namespace Hexacleanws.Vehicle.Adapter.In.Web
+﻿namespace clean_architecture_mapping_demo.Source.Vehicle.Adapter.In.Web
 {
     public class VehicleMotionDataResource
     {

@@ -1,11 +1,10 @@
-﻿
-namespace Hexacleanws.Vehicle.Domain.Model
+﻿namespace clean_architecture_mapping_demo.Source.Vehicle.Domain.Model
 {
-	public class Equipment
-	{
-		public EquipmentCode Code { get; }
-		public String Description { get; }
-		public Equipment(EquipmentCode code, String description)
+    public class Equipment
+    {
+        public EquipmentCode Code { get; }
+        public string Description { get; }
+        public Equipment(EquipmentCode code, string description)
         {
             Code = code;
             Description = description;

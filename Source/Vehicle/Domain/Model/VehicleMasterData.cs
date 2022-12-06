@@ -1,13 +1,12 @@
-﻿
-namespace Hexacleanws.Vehicle.Domain.Model
+﻿namespace clean_architecture_mapping_demo.Source.Vehicle.Domain.Model
 {
-	public class VehicleMasterData
-	{
-		public List<Equipment> EquipmentList { get; }
-		public VehicleModel VehicleModel { get; }
-		public SerialNumber SerialNumber { get; }
-		public MileageUnit MileageUnit { get; }
-		public VehicleMasterData(List<Equipment> equipmentList, VehicleModel vehicleModel, SerialNumber serialNumber, MileageUnit mileageUnit)
+    public class VehicleMasterData
+    {
+        public List<Equipment> EquipmentList { get; }
+        public VehicleModel VehicleModel { get; }
+        public SerialNumber SerialNumber { get; }
+        public MileageUnit MileageUnit { get; }
+        public VehicleMasterData(List<Equipment> equipmentList, VehicleModel vehicleModel, SerialNumber serialNumber, MileageUnit mileageUnit)
         {
             EquipmentList = equipmentList;
             VehicleModel = vehicleModel;

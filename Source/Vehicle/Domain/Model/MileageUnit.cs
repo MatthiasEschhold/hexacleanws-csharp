@@ -1,13 +1,12 @@
-﻿
-namespace Hexacleanws.Vehicle.Domain.Model
+﻿namespace clean_architecture_mapping_demo.Source.Vehicle.Domain.Model
 {
-	public class MileageUnit
-	{
-		public MileageUnitValue Value { get; }
-		public MileageUnit(MileageUnitValue value)
-		{
-			Value = value;
-		}
+    public class MileageUnit
+    {
+        public MileageUnitValue Value { get; }
+        public MileageUnit(MileageUnitValue value)
+        {
+            Value = value;
+        }
 
         public override bool Equals(object? obj)
         {

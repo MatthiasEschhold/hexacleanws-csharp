@@ -1,12 +1,11 @@
-﻿
-namespace Hexacleanws.Vehicle.Domain.Model
+﻿namespace clean_architecture_mapping_demo.Source.Vehicle.Domain.Model
 {
     public class VehicleRootEntity
     {
         public Vin Vin { get; }
         public VehicleMotionData VehicleMotionData { get; }
         public VehicleMasterData VehicleMasterData { get; private set; }
-        public Boolean Has2GSupport { get; private set; } 
+        public bool Has2GSupport { get; private set; }
 
         public VehicleRootEntity(Vin vin, VehicleMotionData vehicleMotionData)
         {
@@ -19,7 +18,7 @@ namespace Hexacleanws.Vehicle.Domain.Model
         {
             Vin = vin;
             VehicleMotionData = vehicleMotionData;
-            VehicleMasterData= vehicleMasterData;
+            VehicleMasterData = vehicleMasterData;
             Validate();
             ValidateVehicleMasterData();
             determineHas2GSupport(VehicleMasterData.EquipmentList);
@@ -35,14 +34,15 @@ namespace Hexacleanws.Vehicle.Domain.Model
         private void determineHas2GSupport(List<Equipment> equipmentList)
         {
             Has2GSupport = false;
-            foreach (Equipment e in equipmentList) {
-                if(e.Code.Value.Equals("GS200"))
+            foreach (Equipment e in equipmentList)
+            {
+                if (e.Code.Value.Equals("GS200"))
                 {
                     Has2GSupport = true;
                     break;
                 }
             }
-           
+
         }
 
         private void ValidateVehicleMasterData()

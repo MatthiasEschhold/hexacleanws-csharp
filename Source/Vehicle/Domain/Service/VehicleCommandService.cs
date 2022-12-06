@@ -1,8 +1,8 @@
-﻿using Hexacleanws.Vehicle.UseCase.Out;
-using Hexacleanws.Vehicle.Domain.Model;
-using Hexacleanws.Vehicle.UseCase.In;
+﻿using clean_architecture_mapping_demo.Source.Vehicle.Domain.Model;
+using clean_architecture_mapping_demo.Source.Vehicle.UseCase.In;
+using clean_architecture_mapping_demo.Source.Vehicle.UseCase.Out;
 
-namespace Hexacleanws.Vehicle.Domain.Service
+namespace clean_architecture_mapping_demo.Source.Vehicle.Domain.Service
 {
     public class VehicleCommandService : VehicleCommand
     {

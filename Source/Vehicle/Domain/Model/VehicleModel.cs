@@ -1,11 +1,11 @@
-﻿namespace Hexacleanws.Vehicle.Domain.Model
+﻿namespace clean_architecture_mapping_demo.Source.Vehicle.Domain.Model
 {
     public class VehicleModel
     {
-        public String ModelDescription { get; }
-        public String ModelType { get; }
+        public string ModelDescription { get; }
+        public string ModelType { get; }
 
-        public VehicleModel(string modelDescription, string modelType )
+        public VehicleModel(string modelDescription, string modelType)
         {
             ModelDescription = modelDescription;
             ModelType = modelType;

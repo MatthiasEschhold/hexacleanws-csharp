@@ -1,17 +1,27 @@
-﻿
-using Hexacleanws.Vehicle.Domain.Model;
-using Hexacleanws.Vehicle.UseCase.Out;
+﻿using clean_architecture_mapping_demo.Source.Vehicle.Domain.Model;
+using clean_architecture_mapping_demo.Source.Vehicle.UseCase.Out;
 
-namespace Hexacleanws.Vehicle.Adapter.Out.Db
+namespace clean_architecture_mapping_demo.Source.Vehicle.Adapter.Out.Db
 {
-    public class VehicleQueryRepository: VehicleDbQuery
+    public class VehicleQueryRepository : VehicleDbQuery
     {
 
-        private readonly VehicleToVehicleDbEntityMapper mapper;
+        private readonly VehicleToVehicleDbEntityMapper Mapper;
 
         public VehicleQueryRepository(VehicleToVehicleDbEntityMapper mapper)
         {
-            this.mapper = mapper;
+            Mapper = mapper;
+        }
+
+        public VehicleRootEntity FindByLicensePlate(LicensePlate licensePlate)
+        {
+            //make sql stuff
+
+            VehicleDbEntity vehicleDbEntity = new VehicleDbEntity();
+            vehicleDbEntity.Vin = "WP0ZZZ99ZTS392155";
+            vehicleDbEntity.LicensePlate = "ES-EM 385";
+            vehicleDbEntity.Mileage = 100000.00;
+            return Mapper.MapVehicleDbEntityToVehicle(vehicleDbEntity);
         }
 
         public VehicleRootEntity FindVehicleByVin(Vin vin)

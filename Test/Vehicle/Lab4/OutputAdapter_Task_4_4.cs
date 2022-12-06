@@ -1,11 +1,11 @@
 ﻿
+using clean_architecture_mapping_demo.Source.Vehicle.Domain.Model;
+using clean_architecture_mapping_demo.Test;
 using Hexacleanws.Vehicle.Adapter.Out.Db;
-using Hexacleanws.Vehicle.Domain.Model;
-using Hexacleanws.Vehicle.Test;
 using Moq;
 using Xunit;
 
-namespace Hexacleanws.Test.Vehicle.Lab4
+namespace clean_architecture_mapping_demo.Test.Vehicle.Lab4
 {
     public class OutputAdapter_Task_4_4 : BaseTest
     {

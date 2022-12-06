@@ -1,12 +1,13 @@
 ﻿using System;
+using clean_architecture_mapping_demo.Source.Vehicle.Adapter.Out.Db;
+using clean_architecture_mapping_demo.Source.Vehicle.Domain.Model;
 using Hexacleanws.Vehicle.Adapter.Out.Db;
-using Hexacleanws.Vehicle.Domain.Model;
 using Xunit;
 
-namespace Hexacleanws.Vehicle.Test.Vehicle.Lab3
+namespace clean_architecture_mapping_demo.Test.Vehicle.Lab3
 {
-	public class OutputAdapter_Tsk_3_2 : BaseTest
-	{
+    public class OutputAdapter_Tsk_3_2 : BaseTest
+    {
         [Fact]
         void vehicle_and_vin_should_be_created_successful()
         {

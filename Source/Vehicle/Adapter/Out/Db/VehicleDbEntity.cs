@@ -1,5 +1,4 @@
-﻿
-namespace Hexacleanws.Vehicle.Adapter.Out.Db
+﻿namespace clean_architecture_mapping_demo.Source.Vehicle.Adapter.Out.Db
 {
     public class VehicleDbEntity
     {

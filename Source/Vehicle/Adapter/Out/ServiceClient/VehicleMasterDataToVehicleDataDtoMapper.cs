@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
-using Hexacleanws.Vehicle.Domain.Model;
+using clean_architecture_mapping_demo.Source.Vehicle.Domain.Model;
 
-namespace Hexacleanws.Vehicle.Adapter.Out.ServiceClient
+namespace clean_architecture_mapping_demo.Source.Vehicle.Adapter.Out.ServiceClient
 {
     public class VehicleMasterDataToVehicleDataDtoMapper : Profile
     {
@@ -13,7 +13,7 @@ namespace Hexacleanws.Vehicle.Adapter.Out.ServiceClient
                 .ForMember(dest => dest.Baumuster, opt => opt.MapFrom(s => s.VehicleModel.ModelType))
                 .ForMember(dest => dest.BaumusterDescription, opt => opt.MapFrom(s => s.VehicleModel.ModelDescription))
                 .ForMember(dest => dest.MileageUnit, opt => opt.MapFrom(s => s.MileageUnit));
-                //equipment list
+            //equipment list
         }
     }
 }

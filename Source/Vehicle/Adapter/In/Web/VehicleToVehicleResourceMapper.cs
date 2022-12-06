@@ -1,11 +1,11 @@
 ﻿using System;
 using AutoMapper;
-using Hexacleanws.Vehicle.Domain.Model;
+using clean_architecture_mapping_demo.Source.Vehicle.Domain.Model;
 
-namespace Hexacleanws.Vehicle.Adapter.In.Web
+namespace clean_architecture_mapping_demo.Source.Vehicle.Adapter.In.Web
 {
-	public class VehicleToVehicleResourceMapper
-	{
+    public class VehicleToVehicleResourceMapper
+    {
         private MapperConfiguration Config;
         private Mapper Mapper;
         public VehicleToVehicleResourceMapper()
@@ -27,8 +27,8 @@ namespace Hexacleanws.Vehicle.Adapter.In.Web
                 //equipment...
                 cfg.CreateMap<VehicleResource, VehicleRootEntity>()
                     .ForMember(dest => dest.Vin.Value, opt => opt.MapFrom(s => s.Vin));
-                    //.ForMember(dest => dest.VehicleMotionData, opt => opt.MapFrom(s => s.VehicleMotionData.Mileage.Value))
-                    //.ForMember(dest => dest.VehicleMasterData.VehicleModel, opt => opt.MapFrom(s => s.VehicleMasterData.VehicleModel.ModelDescription))
+                //.ForMember(dest => dest.VehicleMotionData, opt => opt.MapFrom(s => s.VehicleMotionData.Mileage.Value))
+                //.ForMember(dest => dest.VehicleMasterData.VehicleModel, opt => opt.MapFrom(s => s.VehicleMasterData.VehicleModel.ModelDescription))
 
             });
 

@@ -1,11 +1,11 @@
 ﻿
-using Hexacleanws.Vehicle.Domain.Model;
+using clean_architecture_mapping_demo.Source.Vehicle.Domain.Model;
 
-namespace Hexacleanws.Vehicle.UseCase.Out
+namespace clean_architecture_mapping_demo.Source.Vehicle.UseCase.Out
 {
-	public interface FetchVehicleMasterData
-	{
-		VehicleMasterData Fetch(Vin vin);
-	}
+    public interface FetchVehicleMasterData
+    {
+        VehicleMasterData Fetch(Vin vin);
+    }
 }
 

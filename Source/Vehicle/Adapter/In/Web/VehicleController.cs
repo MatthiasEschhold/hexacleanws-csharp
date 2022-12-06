@@ -1,10 +1,9 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
+using clean_architecture_mapping_demo.Source.Vehicle.UseCase.In;
+using clean_architecture_mapping_demo.Source.Vehicle.Domain.Model;
 
-using Hexacleanws.Vehicle.UseCase.In;
-using Hexacleanws.Vehicle.Domain.Model;
-
-namespace Hexacleanws.Vehicle.Adapter.In.Web
+namespace clean_architecture_mapping_demo.Source.Vehicle.Adapter.In.Web
 {
     //[ApiController]
     //[Route("[controller]")]
@@ -28,7 +27,7 @@ namespace Hexacleanws.Vehicle.Adapter.In.Web
             return Mapper.MapVehicleToVehicleResource(vehicle);
         }
 
-        public VehicleResource UpdateVehicle(String vin, VehicleMotionDataResource vehicleMotionData )
+        public VehicleResource UpdateVehicle(string vin, VehicleMotionDataResource vehicleMotionData)
         {
             VehicleRootEntity vehicle = VehicleCommand.Update(new Vin(vin), Mapper.MapVehicleMotionDataResourceToVehicleMotionData(vehicleMotionData));
             return Mapper.MapVehicleToVehicleResource(vehicle);

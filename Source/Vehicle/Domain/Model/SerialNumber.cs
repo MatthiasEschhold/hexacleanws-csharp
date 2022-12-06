@@ -1,14 +1,13 @@
-﻿
-using System.Text.RegularExpressions;
+﻿using System.Text.RegularExpressions;
 
-namespace Hexacleanws.Vehicle.Domain.Model
+namespace clean_architecture_mapping_demo.Source.Vehicle.Domain.Model
 {
-	public class SerialNumber
-	{
-		public String Value { get; }
-		public SerialNumber(String value)
+    public class SerialNumber
+    {
+        public string Value { get; }
+        public SerialNumber(string value)
         {
-            this.Value = value;
+            Value = value;
             Validate();
         }
 

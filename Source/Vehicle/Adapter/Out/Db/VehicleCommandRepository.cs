@@ -1,6 +1,5 @@
-﻿using Hexacleanws.Vehicle.Adapter.Out.Db;
-using Hexacleanws.Vehicle.Domain.Model;
-using Hexacleanws.Vehicle.UseCase.Out;
+﻿using clean_architecture_mapping_demo.Source.Vehicle.Domain.Model;
+using clean_architecture_mapping_demo.Source.Vehicle.UseCase.Out;
 
 namespace clean_architecture_mapping_demo.Source.Vehicle.Adapter.Out.Db
 {

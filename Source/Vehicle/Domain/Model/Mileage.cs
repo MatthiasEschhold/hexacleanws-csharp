@@ -1,18 +1,17 @@
-﻿
-namespace Hexacleanws.Vehicle.Domain.Model
+﻿namespace clean_architecture_mapping_demo.Source.Vehicle.Domain.Model
 {
-	public class Mileage
-	{
-		public Double Value { get; }
-		public Mileage(Double value)
+    public class Mileage
+    {
+        public double Value { get; }
+        public Mileage(double value)
         {
-            this.Value = value;
+            Value = value;
             Validate();
         }
 
         private void Validate()
         {
-            if (this.Value < 0)
+            if (Value < 0)
             {
                 throw new Exception("Mileage is not valid");
             }

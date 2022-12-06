@@ -1,13 +1,13 @@
 ﻿using AutoMapper;
+using clean_architecture_mapping_demo.Source.Vehicle.Domain.Model;
+using clean_architecture_mapping_demo.Source.Vehicle.UseCase.Out;
 
-using Hexacleanws.Vehicle.Domain.Model;
-using Hexacleanws.Vehicle.UseCase.Out;
-
-namespace Hexacleanws.Vehicle.Adapter.Out.ServiceClient
+namespace clean_architecture_mapping_demo.Source.Vehicle.Adapter.Out.ServiceClient
 {
     public class VehicleMasterDataServiceClient : FetchVehicleMasterData
     {
-        private static readonly MapperConfiguration Config = new(cfg => {
+        private static readonly MapperConfiguration Config = new(cfg =>
+        {
             cfg.AddProfile<VehicleMasterDataToVehicleDataDtoMapper>();
         });
 

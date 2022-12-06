@@ -1,11 +1,10 @@
-﻿
-namespace Hexacleanws.Vehicle.Domain.Model
+﻿namespace clean_architecture_mapping_demo.Source.Vehicle.Domain.Model
 {
-	public class VehicleMotionData
-	{
-		public LicensePlate LicensePlate { get; }
-		public Mileage Mileage { get; }
-		public VehicleMotionData(LicensePlate licensePlate, Mileage mileage)
+    public class VehicleMotionData
+    {
+        public LicensePlate LicensePlate { get; }
+        public Mileage Mileage { get; }
+        public VehicleMotionData(LicensePlate licensePlate, Mileage mileage)
         {
             LicensePlate = licensePlate;
             Mileage = mileage;

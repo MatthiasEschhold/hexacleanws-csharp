@@ -6,7 +6,7 @@ using Xunit;
 using static ArchUnitNET.Fluent.ArchRuleDefinition;
 using ArchUnitNET.xUnit;
 
-namespace Hexacleanws.Vehicle.Test.Vehicle.Lab2
+namespace clean_architecture_mapping_demo.Test.Vehicle.Lab2
 {
     public class ArchitectureTest_Task_2_1_2_2 : BaseArchTest
     {

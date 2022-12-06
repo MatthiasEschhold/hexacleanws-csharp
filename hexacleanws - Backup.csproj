@@ -30,4 +30,11 @@
     <None Remove="Tutorial\" />
     <None Remove="Test\Vehicle\" />
   </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Source\Garage.Order\Adapter\In\" />
+    <Folder Include="Source\Parts.Catalogue\Adapter\In\" />
+    <Folder Include="Source\Parts.Catalogue\Adapter\Out\" />
+    <Folder Include="Test\Vehicle\" />
+    <Folder Include="Tutorial\lab6\" />
+  </ItemGroup>
 </Project>

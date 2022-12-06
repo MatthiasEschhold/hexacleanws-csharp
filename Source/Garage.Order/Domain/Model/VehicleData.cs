@@ -1,14 +1,14 @@
 ﻿namespace clean_architecture_mapping_demo.Source.Garage.Order.Domain.Model
 {
-    public class Vehicle
+    public class VehicleData
     {
         public String LicensePlate { get; }
-        private String Vin { get; }
+        public double Mileage { get; }
 
-        public Vehicle(string licensePlate, string vin)
+        public VehicleData(string licensePlate, double mileage)
         {
             LicensePlate = licensePlate;
-            Vin = vin;
+            Mileage = mileage;
         }
     }
 }

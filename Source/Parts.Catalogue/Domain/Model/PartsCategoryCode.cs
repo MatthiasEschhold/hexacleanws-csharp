@@ -2,5 +2,11 @@
 {
     public class PartsCategoryCode
     {
+        public String Value { get; }
+
+        public PartsCategoryCode(string value)
+        {
+            Value = value;
+        }
     }
 }

@@ -1,7 +1,8 @@
-﻿using clean_architecture_mapping_demo.Source.Vehicle.Domain.Model;
+﻿
+using clean_architecture_mapping_demo.Source.Vehicle.Domain.Model;
 using Xunit;
 
-namespace clean_architecture_mapping_demo.Test.Vehicle.Lab4
+namespace Hexacleanws.Vehicle.Test.Lab4
 {
     public class DomainRing_Task_4_1 : BaseTest
     {
@@ -12,8 +13,8 @@ namespace clean_architecture_mapping_demo.Test.Vehicle.Lab4
         void should_throw_a_exception_due_to_invalid_vin()
         {
             Assert.Throws<Exception>(() => new VehicleRootEntity(
-                new Vin("hgjhgkjhkhkhjh"),
-                CreateVehicleMotionData(),
+                new Vin("hgjhgkjhkhkhjh"), 
+                CreateVehicleMotionData(), 
                 CreateVehicleMasterData()));
         }
 
@@ -33,7 +34,7 @@ namespace clean_architecture_mapping_demo.Test.Vehicle.Lab4
         void should_throw_exception_due_to_nullable_mileage()
         {
             Assert.Throws<Exception>(() => new VehicleMotionData(
-                new LicensePlate(LICENSE_PLATE_TEST_VALUE),
+                new LicensePlate(LICENSE_PLATE_TEST_VALUE), 
                 null));
         }
 
@@ -79,7 +80,7 @@ namespace clean_architecture_mapping_demo.Test.Vehicle.Lab4
             Assert.Equal(vehicle.Vin, vin);
         }
 
-        [Fact]
+        [Fact]  
         void equipment_should_be_created_successful()
         {
             Equipment equipment = new Equipment(new EquipmentCode(EQUIPMENT_CODE), EQUIPMENT_DESCRIPTION);

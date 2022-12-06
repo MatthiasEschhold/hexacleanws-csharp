@@ -16,7 +16,7 @@ namespace clean_architecture_mapping_demo.Source.Vehicle.Domain.Service
             FetchVehicleMasterData = fetchVehicleMasterData;
         }
 
-        public VehicleRootEntity FetchByLicensePlate(LicensePlate licensePlate)
+        public VehicleRootEntity FindByLicensePlate(LicensePlate licensePlate)
         {
             VehicleRootEntity rootEntity = DbQuery.FindByLicensePlate(licensePlate);
             rootEntity.AddVehicleMasterData(FetchVehicleMasterData.Fetch(rootEntity.Vin));

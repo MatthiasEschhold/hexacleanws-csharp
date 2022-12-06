@@ -1,16 +1,13 @@
 ﻿
+using clean_architecture_mapping_demo.Source.Vehicle.Adapter.Out.Db;
 using clean_architecture_mapping_demo.Source.Vehicle.Domain.Model;
-using clean_architecture_mapping_demo.Test;
-using Hexacleanws.Vehicle.Adapter.Out.Db;
-using Moq;
+using Hexacleanws.Vehicle.Test;
 using Xunit;
 
-namespace clean_architecture_mapping_demo.Test.Vehicle.Lab4
+namespace Hexacleanws.Test.Vehicle.Lab5
 {
-    public class OutputAdapter_Task_4_4 : BaseTest
+    public class OutputAdapter_Task_5_1 : BaseTest
     {
-        public OutputAdapter_Task_4_4() { }
-
         [Fact]
         public void vehicle_repository_should_return_a_valid_vehicle()
         {
@@ -24,4 +21,3 @@ namespace clean_architecture_mapping_demo.Test.Vehicle.Lab4
         }
     }
 }
-

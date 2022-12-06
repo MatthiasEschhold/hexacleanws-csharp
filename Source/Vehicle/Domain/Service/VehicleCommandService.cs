@@ -7,6 +7,12 @@ namespace clean_architecture_mapping_demo.Source.Vehicle.Domain.Service
     public class VehicleCommandService : VehicleCommand
     {
         private readonly VehicleDbCommand DbCommand;
+
+        public VehicleCommandService(VehicleDbCommand dbCommand)
+        {
+            DbCommand = dbCommand;
+        }
+
         public VehicleRootEntity Create(VehicleRootEntity vehicle)
         {
             return DbCommand.Save(vehicle);

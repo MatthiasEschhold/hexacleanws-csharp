@@ -1,11 +1,12 @@
-﻿using clean_architecture_mapping_demo.Source.Vehicle.Adapter.In.Web;
+﻿
+using clean_architecture_mapping_demo.Source.Vehicle.Adapter.In.Web;
 using clean_architecture_mapping_demo.Source.Vehicle.Domain.Model;
 using Xunit;
 
-namespace clean_architecture_mapping_demo.Test.Vehicle.Lab3
+namespace Hexacleanws.Vehicle.Test.Lab3
 {
-    public class Mapper_Task_3_3 : BaseTest
-    {
+	public class Mapper_Task_3_3 : BaseTest
+	{
 
         [Fact]
         void should_map_vehicle_resource_to_vehicle()

@@ -2,5 +2,11 @@
 {
     public class OrderNumber
     {
+        public String Value { get; }
+
+        public OrderNumber(string value)
+        {
+            Value = value;
+        }
     }
 }

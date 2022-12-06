@@ -2,8 +2,21 @@
 {
     public class ExplosionChart
     {
-        public Vehicle Vehicle { get; }
+        public VehicleData Vehicle { get; }
         public List<SparePart> SpareParts { get; }
 
+        public PartsCategoryCode PartsCategoryCode { get; }
+
+        public ExplosionChart(VehicleData vehicle, List<SparePart> spareParts, PartsCategoryCode partsCategoryCode)
+        {
+            Vehicle = vehicle;
+            SpareParts = spareParts;
+            PartsCategoryCode = partsCategoryCode;
+        }
+
+        internal static void DoSomeIdependentBusinessLogic()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

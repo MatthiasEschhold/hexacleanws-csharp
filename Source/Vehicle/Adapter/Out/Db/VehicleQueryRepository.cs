@@ -27,7 +27,7 @@ namespace clean_architecture_mapping_demo.Source.Vehicle.Adapter.Out.Db
         public VehicleRootEntity FindVehicleByVin(Vin vin)
         {
             VehicleDbEntity dbEntity = FindVehicleDbEntity(vin);
-            return mapper.MapVehicleDbEntityToVehicle(dbEntity);
+            return Mapper.MapVehicleDbEntityToVehicle(dbEntity);
         }
 
         private VehicleDbEntity FindVehicleDbEntity(Vin vin)

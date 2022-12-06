@@ -7,10 +7,10 @@ using Xunit;
 using static ArchUnitNET.Fluent.ArchRuleDefinition;
 using ArchUnitNET.xUnit;
 
-namespace clean_architecture_mapping_demo.Test.Vehicle.Lab2
+namespace Hexacleanws.Vehicle.Test.Vehicle.Lab2
 {
-    public class ArchitectureTest_Task_2_3 : BaseArchTest
-    {
+	public class ArchitectureTest_Task_2_3 : BaseArchTest
+	{
 
         [Fact]
         public void check_vehicle_service()

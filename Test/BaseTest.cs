@@ -1,8 +1,9 @@
-﻿using clean_architecture_mapping_demo.Source.Vehicle.Adapter.In.Web;
+﻿
+using clean_architecture_mapping_demo.Source.Vehicle.Adapter.In.Web;
 using clean_architecture_mapping_demo.Source.Vehicle.Adapter.Out.Db;
 using clean_architecture_mapping_demo.Source.Vehicle.Domain.Model;
 
-namespace clean_architecture_mapping_demo.Test
+namespace Hexacleanws.Vehicle.Test
 {
     public class BaseTest
     {
@@ -46,11 +47,25 @@ namespace clean_architecture_mapping_demo.Test
 
         protected VehicleMasterData CreateVehicleMasterData()
         {
-            return new VehicleMasterData(CreateEquipmentList(),
+            return new VehicleMasterData(CreateEquipmentList(), 
                 new VehicleModel(VEHICLE_MODEL_DESCRIPTION_TEST_VALUE, VEHICLE_MODEL_TYPE_TEST_VALUE),
                 new SerialNumber(SERIAL_NUMBER_TEST_VALUE), new MileageUnit(MileageUnitValue.KM));
         }
 
+        protected VehicleMasterData CreateVehicleMasterDataWithout2GSupport()
+        {
+            return new VehicleMasterData(CreateEquipmentListWithout2GSupport(),
+                new VehicleModel(VEHICLE_MODEL_DESCRIPTION_TEST_VALUE, VEHICLE_MODEL_TYPE_TEST_VALUE),
+                new SerialNumber(SERIAL_NUMBER_TEST_VALUE), new MileageUnit(MileageUnitValue.KM));
+        }
+
+        private List<Equipment> CreateEquipmentListWithout2GSupport()
+        {
+            List<Equipment> equipmentList = new List<Equipment> {
+            CreateEquipment("LT317", "Live Traffic"),
+            CreateEquipment("KL457", "Sport Chassis M Deluxe")};
+            return equipmentList;
+        }
         protected List<Equipment> CreateEquipmentList()
         {
             List<Equipment> equipmentList = new List<Equipment> {
@@ -60,7 +75,7 @@ namespace clean_architecture_mapping_demo.Test
             return equipmentList;
         }
 
-        private Equipment CreateEquipment(string code, string description)
+        private Equipment CreateEquipment(String code, String description)
         {
             Equipment equipment = new Equipment(new EquipmentCode(code), description);
             return equipment;
@@ -69,8 +84,16 @@ namespace clean_architecture_mapping_demo.Test
         protected VehicleMotionData CreateVehicleMotionData()
         {
             return new VehicleMotionData(
-                new LicensePlate(LICENSE_PLATE_TEST_VALUE),
+                new LicensePlate(LICENSE_PLATE_TEST_VALUE), 
                 new Mileage(MILEAGE_TEST_VALUE));
+        }
+
+        protected VehicleMotionDataResource CreateVehicleMotionDataResource()
+        {
+            VehicleMotionDataResource resource = new VehicleMotionDataResource();
+            resource.Mileage = MILEAGE_TEST_VALUE;
+            resource.LicensePlate = LICENSE_PLATE_TEST_VALUE;
+            return resource;
         }
 
         protected VehicleDbEntity CreateVehicleDbEntity()

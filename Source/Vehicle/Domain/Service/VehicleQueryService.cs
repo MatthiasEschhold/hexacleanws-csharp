@@ -1,4 +1,6 @@
-﻿using Hexacleanws.Vehicle.Domain.Model;
+﻿
+using Hexacleanws.Vehicle.Domain.dto;
+using Hexacleanws.Vehicle.Domain.Model;
 using Hexacleanws.Vehicle.UseCase.In;
 using Hexacleanws.Vehicle.UseCase.Out;
 

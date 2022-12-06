@@ -1,4 +1,5 @@
-﻿using Hexacleanws.Vehicle.Adapter.In.Web;
+﻿using clean_architecture_mapping_demo.Source.Vehicle.Domain.dto;
+using Hexacleanws.Vehicle.Adapter.In.Web;
 using Hexacleanws.Vehicle.Adapter.Out.Db;
 using Hexacleanws.Vehicle.Domain.Model;
 using Microsoft.VisualStudio.TestPlatform.ObjectModel;
@@ -53,18 +54,18 @@ namespace Hexacleanws.Vehicle.Test
                 new SerialNumber(SERIAL_NUMBER_TEST_VALUE), new MileageUnit(MileageUnitValue.KM));
         }
 
-        protected List<Equipment> CreateEquipmentList()
+        protected List<VehicleMasterDataDomainDto> CreateEquipmentList()
         {
-            List<Equipment> equipmentList = new List<Equipment> {
+            List<VehicleMasterDataDomainDto> equipmentList = new List<VehicleMasterDataDomainDto> {
             CreateEquipment("LT317", "Live Traffic"),
             CreateEquipment("GS200", "2G Adapter"),
             CreateEquipment("KL457", "Sport Chassis M Deluxe")};
             return equipmentList;
         }
 
-        private Equipment CreateEquipment(String code, String description)
+        private VehicleMasterDataDomainDto CreateEquipment(String code, String description)
         {
-            Equipment equipment = new Equipment(new EquipmentCode(code), description);
+            VehicleMasterDataDomainDto equipment = new VehicleMasterDataDomainDto(new EquipmentCodeDto(code), description);
             return equipment;
         }
 

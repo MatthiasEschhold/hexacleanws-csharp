@@ -1,4 +1,6 @@
 ﻿
+using Hexacleanws.Vehicle.Domain.dto;
+
 namespace Hexacleanws.Vehicle.Domain.Model
 {
     public class VehicleRootEntity
@@ -15,28 +17,28 @@ namespace Hexacleanws.Vehicle.Domain.Model
             Validate();
         }
 
-        public VehicleRootEntity(Vin vin, VehicleMotionData vehicleMotionData, VehicleMasterData vehicleMasterData)
+        public VehicleRootEntity(Vin vin, VehicleMotionData vehicleMotionData, VehicleMasterData vehicleMasterData, Boolean has2GSupport)
         {
             Vin = vin;
             VehicleMotionData = vehicleMotionData;
-            VehicleMasterData= vehicleMasterData;
+            VehicleMasterData = vehicleMasterData;
+            Has2GSupport = has2GSupport;
             Validate();
             ValidateVehicleMasterData();
-            determineHas2GSupport(VehicleMasterData.EquipmentList);
         }
 
-        public void AddVehicleMasterData(VehicleMasterData vehicleMasterData)
+        public void AddVehicleMasterData(VehicleMasterDataDomainDto vehicleMasterDataDomainDto)
         {
-            VehicleMasterData = vehicleMasterData;
+            VehicleMasterData = new VehicleMasterData(vehicleMasterDataDomainDto.VehicleModel, vehicleMasterDataDomainDto.SerialNumber, vehicleMasterDataDomainDto.MileageUnit);
             ValidateVehicleMasterData();
-            determineHas2GSupport(VehicleMasterData.EquipmentList);
+            determineHas2GSupport(vehicleMasterDataDomainDto.EquipmentCodes);
         }
 
-        private void determineHas2GSupport(List<Equipment> equipmentList)
+        private void determineHas2GSupport(List<string> equipmentCodeList)
         {
             Has2GSupport = false;
-            foreach (Equipment e in equipmentList) {
-                if(e.Code.Value.Equals("GS200"))
+            foreach (string code in equipmentCodeList) {
+                if(code.Equals("GS200"))
                 {
                     Has2GSupport = true;
                     break;

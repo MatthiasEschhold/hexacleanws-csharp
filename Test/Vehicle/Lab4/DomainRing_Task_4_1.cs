@@ -1,4 +1,5 @@
-﻿using Hexacleanws.Vehicle.Domain.Model;
+﻿using clean_architecture_mapping_demo.Source.Vehicle.Domain.dto;
+using Hexacleanws.Vehicle.Domain.Model;
 using Xunit;
 
 namespace Hexacleanws.Vehicle.Test.Lab4
@@ -82,7 +83,7 @@ namespace Hexacleanws.Vehicle.Test.Lab4
         [Fact]  
         void equipment_should_be_created_successful()
         {
-            Equipment equipment = new Equipment(new EquipmentCode(EQUIPMENT_CODE), EQUIPMENT_DESCRIPTION);
+            VehicleMasterDataDomainDto equipment = new VehicleMasterDataDomainDto(new EquipmentCodeDto(EQUIPMENT_CODE), EQUIPMENT_DESCRIPTION);
             Assert.Equal(EQUIPMENT_CODE, equipment.Code.Value);
             Assert.Equal(EQUIPMENT_DESCRIPTION, equipment.Description);
         }

@@ -18,7 +18,7 @@ namespace Hexacleanws.Vehicle.Adapter.Out.ServiceClient
             mapper = new Mapper(Config);
         }
 
-        public VehicleMasterData Fetch(Vin vin)
+        public VehicleMasterDataDomainDto Fetch(Vin vin)
         {
             //call a external service
             //make http client stuff

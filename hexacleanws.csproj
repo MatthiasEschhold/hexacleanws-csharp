@@ -29,8 +29,8 @@
     <None Remove="Tutorial\" />
     <None Remove="Test\Vehicle\" />
   </ItemGroup>
+
   <ItemGroup>
-    <Folder Include="Tutorial\" />
-    <Folder Include="Test\Vehicle\" />
+    <Folder Include="Source\Vehicle\" />
   </ItemGroup>
 </Project>

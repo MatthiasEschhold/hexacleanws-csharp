@@ -1,8 +1,8 @@
-﻿
-using Hexacleanws.Vehicle.Domain.Model;
+﻿using Hexacleanws.Vehicle.Domain.Model;
+using Hexacleanws.Vehicle.Test;
 using Xunit;
 
-namespace Hexacleanws.Vehicle.Test.Vehicle
+namespace clean_architecture_mapping_demo.Test.Vehicle
 {
     public class DomainRing_Task_1_1 : BaseTest
     {

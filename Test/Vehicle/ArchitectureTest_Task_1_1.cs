@@ -2,31 +2,29 @@
 using ArchUnitNET.Loader;
 using ArchUnitNET.Fluent;
 using Xunit;
-
-//add a using directive to ArchUnitNET.Fluent.ArchRuleDefinition to easily define ArchRules
 using static ArchUnitNET.Fluent.ArchRuleDefinition;
 using ArchUnitNET.xUnit;
+using Hexacleanws.Vehicle.Test;
 
-namespace Hexacleanws.Vehicle.Test.Vehicle
+namespace Hexacleanws.Test.Vehicle
 {
     
-    public class ArchitectureTest_Task_1_1
+    public class ArchitectureTest_Task_1_1 : BaseTest
     {
-
-        const string VEHICLE_MODULE = "Hexacleanws.Vehicle";
-
-        private static readonly Architecture Architecture =
-            new ArchLoader().LoadNamespacesWithinAssembly(typeof(Program).Assembly, 
-                new string[]{ VEHICLE_MODULE }).Build();
 
         [Fact]
         public void check_vehicle_service()
         {
-            IArchRule rule = Classes().That().HaveName("VehicleService")
-                    .Should().DependOnAny(Classes().That()
-                    .HaveName("VehicleRootEntity").And()
-                    .HaveName("Vin").And()
-                    .HaveFullNameContaining("System"));
+            IArchRule rule = Classes()
+                .That()
+                .HaveName(SERVICE_UNDER_TEST)
+                .Should()
+                .OnlyDependOn(Classes()
+                    .That()
+                    .HaveName(ROOT_ENTITY_UNDER_TEST)
+                    .Or()
+                    .HaveName(VALUE_OBJECT_UNDER_TEST)
+                 );
 
             rule.Check(Architecture);
         }

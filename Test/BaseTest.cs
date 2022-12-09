@@ -1,16 +1,15 @@
-﻿using System;
+﻿using ArchUnitNET.Domain;
+using ArchUnitNET.Loader;
+
 namespace Hexacleanws.Vehicle.Test
 {
     public class BaseTest
     {
-       
-
-        protected const String ROOT_PACKAGE = "com.hexaclean.arc.demo";
         protected const String DOMAIN = "..domain..";
         protected const String DOMAIN_SERVICE = "..domain.service..";
         protected const String DOMAIN_MODEL = "..domain.model..";
         protected const String JAVA_LANG = "..java.lang..";
-        protected const String ROOT_ENTITY_UNDER_TEST = "Vehicle";
+        protected const String ROOT_ENTITY_UNDER_TEST = "VehicleRootEntity";
         protected const String DB_ENTITY_UNDER_TEST = "VehicleDbEntity";
         protected const String SERVICE_UNDER_TEST = "VehicleService";
         protected const String VALUE_OBJECT_UNDER_TEST = "Vin";
@@ -33,6 +32,13 @@ namespace Hexacleanws.Vehicle.Test
         protected const String VEHICLE_MODEL_DESCRIPTION_TEST_VALUE = "E30 Limousine";
         protected const String VEHICLE_MODEL_TYPE_TEST_VALUE = "3er";
         protected const String SERIAL_NUMBER_TEST_VALUE = "0123456789";
+
+        protected const string VEHICLE_MODULE = "Hexacleanws.Source.Vehicle";
+
+        protected static readonly Architecture Architecture =
+            new ArchLoader().LoadNamespacesWithinAssembly(typeof(Program).Assembly,
+                new string[] { VEHICLE_MODULE }).Build();
+
     }
 }
 

@@ -1,5 +1,4 @@
-﻿
-using Hexacleanws.Source.Vehicle.Domain.Model;
+﻿/*using Hexacleanws.Source.Vehicle.Domain.Model;
 using Hexacleanws.Source.Vehicle.Domain.Service;
 using Hexacleanws.Vehicle.Test;
 using Xunit;
@@ -17,5 +16,5 @@ namespace Hexacleanws.Test.Vehicle
         }
 
     }
-}
+}*/
 

@@ -6,6 +6,12 @@ namespace Hexacleanws.Source.Vehicle.Adapter.In
     public class VehicleController
     {
         private readonly VehicleQuery vehicleQuery;
+
+        public VehicleController(VehicleQuery vehicleQuery)
+        {
+            this.vehicleQuery = vehicleQuery;
+        }
+
         public VehicleRootEntity ReadVehicle(string vin)
         {
             return vehicleQuery.FindByVin(new Vin(vin));

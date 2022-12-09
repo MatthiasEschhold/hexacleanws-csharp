@@ -1,5 +1,6 @@
 ﻿using ArchUnitNET.Domain;
 using ArchUnitNET.Loader;
+using Hexacleanws.Source.Vehicle.Domain.Model;
 
 namespace Hexacleanws.Vehicle.Test
 {
@@ -38,6 +39,11 @@ namespace Hexacleanws.Vehicle.Test
         protected static readonly Architecture Architecture =
             new ArchLoader().LoadNamespacesWithinAssembly(typeof(Program).Assembly,
                 new string[] { VEHICLE_MODULE }).Build();
+
+        protected VehicleRootEntity CreateVehicle()
+        {
+            return new VehicleRootEntity(new Vin(VIN));
+        }
 
     }
 }

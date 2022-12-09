@@ -6,9 +6,9 @@ using static ArchUnitNET.Fluent.ArchRuleDefinition;
 using ArchUnitNET.xUnit;
 using Hexacleanws.Vehicle.Test;
 
-namespace Hexacleanws.Test.Vehicle
+namespace Hexacleanws.Test.Vehicle.lab
 {
-    
+
     public class ArchitectureTest_Task_1_1 : BaseTest
     {
 

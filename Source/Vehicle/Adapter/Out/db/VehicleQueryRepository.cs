@@ -3,11 +3,11 @@ using Hexacleanws.Source.Vehicle.UseCase.Out;
 
 namespace Hexacleanws.Source.Vehicle.Adapter.Out.db
 {
-    public class VehicleRepository : VehicleDbQuery
+    public class VehicleQueryRepository : VehicleDbQuery
     {
         private readonly VehicleToVehicleDbEntityMapper Mapper;
 
-        public VehicleRepository(VehicleToVehicleDbEntityMapper mapper)
+        public VehicleQueryRepository(VehicleToVehicleDbEntityMapper mapper)
         {
             Mapper = mapper;
         }

@@ -6,6 +6,7 @@
         public Vin Vin { get; }
         public VehicleMotionData VehicleMotionData { get; }
         public VehicleMasterData VehicleMasterData { get; private set; }
+        public Boolean Has2GSupport { get; private set; }
 
         public VehicleRootEntity(Vin vin, VehicleMotionData vehicleMotionData)
         {
@@ -18,15 +19,17 @@
         {
             Vin = vin;
             VehicleMotionData = vehicleMotionData;
-            VehicleMasterData= vehicleMasterData;
+            VehicleMasterData = vehicleMasterData;
             Validate();
             ValidateVehicleMasterData();
+            determineHas2GSupport(VehicleMasterData.EquipmentList);
         }
 
         public void AddVehicleMasterData(VehicleMasterData vehicleMasterData)
         {
             VehicleMasterData = vehicleMasterData;
             ValidateVehicleMasterData();
+            determineHas2GSupport(VehicleMasterData.EquipmentList);
         }
 
         private void ValidateVehicleMasterData()
@@ -43,6 +46,20 @@
             {
                 throw new Exception("Vin and / or vehicle motion data are not valid");
             }
+        }
+
+        private void determineHas2GSupport(List<Equipment> equipmentList)
+        {
+            Has2GSupport = false;
+            foreach (Equipment e in equipmentList)
+            {
+                if (e.Code.Value.Equals("GS200"))
+                {
+                    Has2GSupport = true;
+                    break;
+                }
+            }
+
         }
 
         public override bool Equals(object? obj)

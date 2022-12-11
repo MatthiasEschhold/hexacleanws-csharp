@@ -1,16 +1,21 @@
 ﻿using AutoMapper;
 using Hexacleanws.Source.Vehicle.Domain.Model;
+using Hexacleanws.Vehicle.Adapter.In.Web;
 
 namespace Hexacleanws.Source.Vehicle.Adapter.In.Web
 {
     public class VehicleToVehicleResourceMapper
     {
+
         private MapperConfiguration Config;
         private Mapper Mapper;
         public VehicleToVehicleResourceMapper()
         {
             Config = new MapperConfiguration(cfg =>
             {
+                cfg.CreateMap<VehicleMotionData, VehicleMotionDataResource>()
+                   .ForMember(dest => dest.LicensePlate, opt => opt.MapFrom(s => s.LicensePlate))
+                   .ForMember(dest => dest.Mileage, opt => opt.MapFrom(s => s.Mileage)); ;
 
                 cfg.CreateMap<VehicleRootEntity, VehicleResource>()
                     .ForMember(dest => dest.Vin, opt => opt.MapFrom(s => s.Vin.Value))
@@ -40,6 +45,11 @@ namespace Hexacleanws.Source.Vehicle.Adapter.In.Web
         public VehicleRootEntity MapVehicleResourceToVehicle(VehicleResource resource)
         {
             return Mapper.Map<VehicleResource, VehicleRootEntity>(resource);
+        }
+
+        public VehicleMotionData MapVehicleMotionDataResourceToVehicleMotionData(VehicleMotionDataResource resource)
+        {
+            return Mapper.Map<VehicleMotionDataResource, VehicleMotionData>(resource);
         }
 
     }

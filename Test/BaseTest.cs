@@ -4,6 +4,7 @@ using Hexacleanws.Source.Vehicle.Adapter.In;
 using Hexacleanws.Source.Vehicle.Adapter.In.Web;
 using Hexacleanws.Source.Vehicle.Adapter.Out.db;
 using Hexacleanws.Source.Vehicle.Domain.Model;
+using Hexacleanws.Vehicle.Adapter.In.Web;
 
 namespace Hexacleanws.Vehicle.Test
 {
@@ -48,6 +49,7 @@ namespace Hexacleanws.Vehicle.Test
         {
             return new VehicleRootEntity(new Vin(VIN), CreateVehicleMotionData());
         }
+       
         protected VehicleRootEntity CreateVehicle()
         {
             return new VehicleRootEntity(new Vin(VIN), CreateVehicleMotionData(), CreateVehicleMasterData());
@@ -58,6 +60,22 @@ namespace Hexacleanws.Vehicle.Test
             return new VehicleMasterData(CreateEquipmentList(),
                 new VehicleModel(VEHICLE_MODEL_DESCRIPTION_TEST_VALUE, VEHICLE_MODEL_TYPE_TEST_VALUE),
                 new SerialNumber(SERIAL_NUMBER_TEST_VALUE), new MileageUnit(MileageUnitValue.KM));
+        }
+
+        protected VehicleMasterData CreateVehicleMasterDataWithout2G()
+        {
+            return new VehicleMasterData(CreateEquipmentListWithout2G(),
+                new VehicleModel(VEHICLE_MODEL_DESCRIPTION_TEST_VALUE, VEHICLE_MODEL_TYPE_TEST_VALUE),
+                new SerialNumber(SERIAL_NUMBER_TEST_VALUE), new MileageUnit(MileageUnitValue.KM));
+        }
+
+        private List<Equipment> CreateEquipmentListWithout2G()
+        {
+            List<Equipment> equipmentList = new List<Equipment> {
+            CreateEquipment("LT317", "Live Traffic"),
+            CreateEquipment("GS400", "4G Adapter"),
+            CreateEquipment("KL457", "Sport Chassis M Deluxe")};
+            return equipmentList;
         }
 
         protected List<Equipment> CreateEquipmentList()
@@ -118,6 +136,14 @@ namespace Hexacleanws.Vehicle.Test
             equipment.Code = code;
             equipment.Description = description;
             return equipment;
+        }
+
+       public VehicleMotionDataResource CreateVehicleMotionDataResource()
+        {
+            VehicleMotionDataResource resource= new VehicleMotionDataResource();
+            resource.LicensePlate = LICENSE_PLATE_TEST_VALUE;
+            resource.Mileage = MILEAGE_TEST_VALUE;
+            return resource;
         }
 
     }

@@ -1,4 +1,6 @@
-﻿namespace Hexacleanws.Source.Vehicle.Domain.Model
+﻿using Hexacleanws.Source.Vehicle.Domain.Service;
+
+namespace Hexacleanws.Source.Vehicle.Domain.Model
 {
     public class VehicleRootEntity
     {

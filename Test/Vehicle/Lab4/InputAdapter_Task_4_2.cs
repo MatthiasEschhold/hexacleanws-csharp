@@ -1,5 +1,5 @@
 ﻿
-
+/*
 using Hexacleanws.Source.Vehicle.Adapter.In;
 using Hexacleanws.Source.Vehicle.Adapter.In.Web;
 using Hexacleanws.Source.Vehicle.Domain.Model;
@@ -31,5 +31,5 @@ namespace Hexacleanws.Test.Vehicle.Vehicle.Lab4
         }
 
     }
-}
+}*/
 

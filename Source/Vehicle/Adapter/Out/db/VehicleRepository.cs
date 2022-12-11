@@ -7,6 +7,9 @@ namespace Hexacleanws.Source.Vehicle.Adapter.Out.db
     {
         private readonly VehicleToVehicleDbEntityMapper Mapper;
 
+        private const string LICENPLATE_TEST_VALUE = "ES-EM 385";
+        private const double MILEAGE_TEST_VALUE = 100000;
+
         public VehicleRepository(VehicleToVehicleDbEntityMapper mapper)
         {
             Mapper = mapper;
@@ -21,8 +24,6 @@ namespace Hexacleanws.Source.Vehicle.Adapter.Out.db
         {
             VehicleDbEntity dbEntity = new VehicleDbEntity();
             dbEntity.Vin = vin.Value;
-            dbEntity.LicensePlate = "ES-EM 385";
-            dbEntity.Mileage = 100000;
             return dbEntity;
         }
 

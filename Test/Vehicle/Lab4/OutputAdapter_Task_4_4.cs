@@ -1,4 +1,4 @@
-﻿
+﻿/*
 using Hexacleanws.Source.Vehicle.Adapter.Out.db;
 using Hexacleanws.Source.Vehicle.Domain.Model;
 using Hexacleanws.Vehicle.Test;
@@ -24,5 +24,5 @@ namespace Hexacleanws.Test.Vehicle.Lab4
             Assert.Equal(vehicle.VehicleMotionData.Mileage.Value, actualVehicle.VehicleMotionData.Mileage.Value);
         }
     }
-}
+}*/
 

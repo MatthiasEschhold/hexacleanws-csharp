@@ -1,4 +1,5 @@
-﻿using Hexacleanws.Source.Vehicle.Domain.Model;
+﻿
+using Hexacleanws.Source.Vehicle.Domain.Model;
 
 namespace Hexacleanws.Source.Vehicle.Adapter.Out.ServiceClient
 {

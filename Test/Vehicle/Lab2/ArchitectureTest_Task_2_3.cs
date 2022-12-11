@@ -13,11 +13,22 @@ namespace Hexacleanws.Vehicle.Test.Vehicle.Lab2
         [Fact]
         public void check_vehicle_service()
         {
-            IArchRule rule = Classes().That().HaveName("VehicleService")
-                    .Should().DependOnAny(Classes().That()
-                    .HaveName("VehicleRootEntity").And()
-                    .HaveName("Vin").And()
-                    .HaveFullNameContaining("System"));
+            IArchRule rule = Classes()
+                .That()
+                .HaveName(SERVICE_UNDER_TEST)
+                .Should()
+                .OnlyDependOn(Classes()
+                    .That()
+                    .HaveName(ROOT_ENTITY_UNDER_TEST)
+                    .Or()
+                    .HaveName(VALUE_OBJECT_UNDER_TEST)
+                    .Or()
+                    .HaveName(USECASE_IN_QUERY_UNDER_TEST)
+                    .Or()
+                    .HaveName(USECASE_OUT_QUERY_UNDER_TEST)
+                    .Or()
+                    .HaveName(SERVICE_UNDER_TEST)
+                 );
 
             rule.Check(Architecture);
         }

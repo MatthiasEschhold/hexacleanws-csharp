@@ -6,9 +6,9 @@ using static ArchUnitNET.Fluent.ArchRuleDefinition;
 using ArchUnitNET.xUnit;
 using Hexacleanws.Vehicle.Test;
 
-namespace Hexacleanws.Test.Vehicle.lab
+namespace Hexacleanws.Test.Vehicle
 {
-
+    
     public class ArchitectureTest_Task_1_1 : BaseTest
     {
 
@@ -24,6 +24,12 @@ namespace Hexacleanws.Test.Vehicle.lab
                     .HaveName(ROOT_ENTITY_UNDER_TEST)
                     .Or()
                     .HaveName(VALUE_OBJECT_UNDER_TEST)
+                    .Or()
+                    .HaveName(USECASE_IN_QUERY_UNDER_TEST)
+                    .Or()
+                    .HaveName(USECASE_OUT_QUERY_UNDER_TEST)
+                    .Or()
+                    .HaveFullNameContaining(IGNORED_SYSTEM_DEPENDENCY)
                  );
 
             rule.Check(Architecture);

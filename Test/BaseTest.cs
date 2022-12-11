@@ -33,6 +33,7 @@ namespace Hexacleanws.Vehicle.Test
         protected const String VEHICLE_MODEL_DESCRIPTION_TEST_VALUE = "E30 Limousine";
         protected const String VEHICLE_MODEL_TYPE_TEST_VALUE = "3er";
         protected const String SERIAL_NUMBER_TEST_VALUE = "0123456789";
+        protected const String IGNORED_SYSTEM_DEPENDENCY = "System";
 
         protected const string VEHICLE_MODULE = "Hexacleanws.Source.Vehicle";
 

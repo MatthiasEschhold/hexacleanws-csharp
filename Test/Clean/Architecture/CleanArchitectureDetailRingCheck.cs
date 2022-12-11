@@ -17,7 +17,8 @@ namespace Hexacleanws.Test.Clean.Architecture
         public void should_check_domain_service_ring()
         {
             IArchRule rule = Types().That().HaveFullNameContaining("Domain.Service")
-                    .Should().NotDependOnAny(Types().That().HaveFullNameContaining("Adapter.In"))
+                    .Should().ImplementInterface("UseCase.In", true)
+                    .AndShould().NotDependOnAny(Types().That().HaveFullNameContaining("Adapter.In"))
                     .AndShould().NotDependOnAny(Types().That().HaveFullNameContaining("Adapter.Out"));
             rule.Check(Architecture);
         }

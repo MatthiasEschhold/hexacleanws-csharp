@@ -2,8 +2,6 @@
 {
     public class VehicleDataDto
     {
-
-
         public SalesInformationDto SalesInformation { get; set; }
         public VehicleDealerHistoryDto VehicleDealerHistory { get; set; }
         public string VinOrFin { get; set; }

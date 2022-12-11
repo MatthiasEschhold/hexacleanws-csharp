@@ -12,15 +12,23 @@ namespace Hexacleanws.Source.Vehicle.Adapter.Out.db
             Mapper = mapper;
         }
 
-        public VehicleRootEntity FindVehicleByVin(Vin vin)
+        public VehicleRootEntity FindByLicensePlate(LicensePlate licensePlate)
         {
-            return Mapper.MapVehicleDbEntityToVehicle(FindVehicleDbEntity(vin));
+            //make sql stuff
+
+            return Mapper.MapVehicleDbEntityToVehicle(CreateVehicleDbEntity(licensePlate.Value));
         }
 
-        private VehicleDbEntity FindVehicleDbEntity(Vin vin)
+
+        public VehicleRootEntity FindVehicleByVin(Vin vin)
+        {
+            return Mapper.MapVehicleDbEntityToVehicle(CreateVehicleDbEntity(vin.Value));
+        }
+
+        private VehicleDbEntity CreateVehicleDbEntity(String vin)
         {
             VehicleDbEntity dbEntity = new VehicleDbEntity();
-            dbEntity.Vin = vin.Value;
+            dbEntity.Vin = "WP0ZZZ99ZTS392155";
             dbEntity.LicensePlate = "ES-EM 385";
             dbEntity.Mileage = 100000;
             return dbEntity;

@@ -1,5 +1,6 @@
 ﻿
 using Hexacleanws.Source.Vehicle.Adapter.Out;
+using Hexacleanws.Source.Vehicle.Adapter.Out.db;
 using Hexacleanws.Source.Vehicle.Domain.Model;
 using Xunit;
 

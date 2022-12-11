@@ -1,7 +1,8 @@
 ﻿using ArchUnitNET.Domain;
 using ArchUnitNET.Loader;
 using Hexacleanws.Source.Vehicle.Adapter.In;
-using Hexacleanws.Source.Vehicle.Adapter.Out;
+using Hexacleanws.Source.Vehicle.Adapter.In.Web;
+using Hexacleanws.Source.Vehicle.Adapter.Out.db;
 using Hexacleanws.Source.Vehicle.Domain.Model;
 
 namespace Hexacleanws.Vehicle.Test
@@ -43,23 +44,80 @@ namespace Hexacleanws.Vehicle.Test
             new ArchLoader().LoadNamespacesWithinAssembly(typeof(Program).Assembly,
                 new string[] { VEHICLE_MODULE }).Build();
 
+        protected VehicleRootEntity CreateVehicleWithoutMasterData()
+        {
+            return new VehicleRootEntity(new Vin(VIN), CreateVehicleMotionData());
+        }
         protected VehicleRootEntity CreateVehicle()
         {
-            return new VehicleRootEntity(new Vin(VIN));
+            return new VehicleRootEntity(new Vin(VIN), CreateVehicleMotionData(), CreateVehicleMasterData());
+        }
+
+        protected VehicleMasterData CreateVehicleMasterData()
+        {
+            return new VehicleMasterData(CreateEquipmentList(),
+                new VehicleModel(VEHICLE_MODEL_DESCRIPTION_TEST_VALUE, VEHICLE_MODEL_TYPE_TEST_VALUE),
+                new SerialNumber(SERIAL_NUMBER_TEST_VALUE), new MileageUnit(MileageUnitValue.KM));
+        }
+
+        protected List<Equipment> CreateEquipmentList()
+        {
+            List<Equipment> equipmentList = new List<Equipment> {
+            CreateEquipment("LT317", "Live Traffic"),
+            CreateEquipment("GS200", "2G Adapter"),
+            CreateEquipment("KL457", "Sport Chassis M Deluxe")};
+            return equipmentList;
+        }
+
+        private Equipment CreateEquipment(String code, String description)
+        {
+            return new Equipment(new EquipmentCode(code),  description);
+        }
+
+        protected VehicleMotionData CreateVehicleMotionData()
+        {
+            return new VehicleMotionData(
+                new LicensePlate(LICENSE_PLATE_TEST_VALUE),
+                new Mileage(MILEAGE_TEST_VALUE));
         }
 
         protected VehicleDbEntity CreateVehicleDbEntity()
         {
             VehicleDbEntity dbEntity = new VehicleDbEntity();
             dbEntity.Vin = VIN;
+            dbEntity.LicensePlate = LICENSE_PLATE_TEST_VALUE;
+            dbEntity.Mileage = MILEAGE_TEST_VALUE;
             return dbEntity;
         }
 
         protected VehicleResource CreateVehicleResource()
         {
-            VehicleResource resource = new VehicleResource();
-            resource.Vin = VIN;
-            return resource;
+            VehicleResource vehicle = new VehicleResource();
+            vehicle.Vin = VIN;
+            vehicle.VehicleModelType = VEHICLE_MODEL_TYPE_TEST_VALUE;
+            vehicle.VehicleModelDescription = VEHICLE_MODEL_DESCRIPTION_TEST_VALUE;
+            vehicle.SerialNumber = SERIAL_NUMBER_TEST_VALUE;
+            vehicle.MileageUnit = MileageUnitValue.KM.ToString();
+            vehicle.equipmentList = CreateEquipmentResourceList();
+            vehicle.LicensePlate = LICENSE_PLATE_TEST_VALUE;
+            return vehicle;
+        }
+
+        protected List<EquipmentResource> CreateEquipmentResourceList()
+        {
+            List<EquipmentResource> equipmentList = new List<EquipmentResource> {
+            CreateEquipmentResource("LT317", "Live Traffic"),
+            CreateEquipmentResource("GS200", "2G Adapter"),
+            CreateEquipmentResource("KL457", "Sport Chassis M Deluxe")};
+            return equipmentList;
+        }
+
+        private EquipmentResource CreateEquipmentResource(string code, string description)
+        {
+            EquipmentResource equipment = new EquipmentResource();
+            equipment.Code = code;
+            equipment.Description = description;
+            return equipment;
         }
 
     }

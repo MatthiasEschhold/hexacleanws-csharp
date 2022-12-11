@@ -1,5 +1,4 @@
-﻿
-using Hexacleanws.Source.Vehicle.Adapter.Out;
+﻿using Hexacleanws.Source.Vehicle.Adapter.Out.db;
 using Hexacleanws.Vehicle.Test;
 using Xunit;
 

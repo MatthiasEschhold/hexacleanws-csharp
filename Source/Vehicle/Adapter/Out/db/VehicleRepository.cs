@@ -1,7 +1,7 @@
 ﻿using Hexacleanws.Source.Vehicle.Domain.Model;
 using Hexacleanws.Source.Vehicle.UseCase.Out;
 
-namespace Hexacleanws.Source.Vehicle.Adapter.Out
+namespace Hexacleanws.Source.Vehicle.Adapter.Out.db
 {
     public class VehicleRepository : VehicleDbQuery
     {
@@ -21,6 +21,8 @@ namespace Hexacleanws.Source.Vehicle.Adapter.Out
         {
             VehicleDbEntity dbEntity = new VehicleDbEntity();
             dbEntity.Vin = vin.Value;
+            dbEntity.LicensePlate = "ES-EM 385";
+            dbEntity.Mileage = 100000;
             return dbEntity;
         }
 

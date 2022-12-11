@@ -1,5 +1,7 @@
 ﻿using ArchUnitNET.Domain;
 using ArchUnitNET.Loader;
+using Hexacleanws.Source.Vehicle.Adapter.In;
+using Hexacleanws.Source.Vehicle.Adapter.Out;
 using Hexacleanws.Source.Vehicle.Domain.Model;
 
 namespace Hexacleanws.Vehicle.Test
@@ -44,6 +46,20 @@ namespace Hexacleanws.Vehicle.Test
         protected VehicleRootEntity CreateVehicle()
         {
             return new VehicleRootEntity(new Vin(VIN));
+        }
+
+        protected VehicleDbEntity CreateVehicleDbEntity()
+        {
+            VehicleDbEntity dbEntity = new VehicleDbEntity();
+            dbEntity.Vin = VIN;
+            return dbEntity;
+        }
+
+        protected VehicleResource CreateVehicleResource()
+        {
+            VehicleResource resource = new VehicleResource();
+            resource.Vin = VIN;
+            return resource;
         }
 
     }

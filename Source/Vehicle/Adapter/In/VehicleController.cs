@@ -1,20 +1,24 @@
-﻿using Hexacleanws.Source.Vehicle.Domain.Model;
+﻿using Hexacleanws.Source.Vehicle.Adapter.In.Web;
+using Hexacleanws.Source.Vehicle.Domain.Model;
 using Hexacleanws.Source.Vehicle.UseCase.In;
 
 namespace Hexacleanws.Source.Vehicle.Adapter.In
 {
     public class VehicleController
     {
-        private readonly VehicleQuery vehicleQuery;
+        private readonly VehicleQuery VehicleQuery;
+        private readonly VehicleToVehicleResourceMapper Mapper;
 
-        public VehicleController(VehicleQuery vehicleQuery)
+        public VehicleController(VehicleQuery vehicleQuery, VehicleToVehicleResourceMapper mapper)
         {
-            this.vehicleQuery = vehicleQuery;
+            VehicleQuery = vehicleQuery;
+            Mapper = mapper;
         }
 
-        public VehicleRootEntity ReadVehicle(string vin)
+        public VehicleResource ReadVehicle(string vin)
         {
-            return vehicleQuery.FindByVin(new Vin(vin));
+            VehicleRootEntity entity = VehicleQuery.FindByVin(new Vin(vin));
+            return Mapper.MapVehicleToVehicleResource(entity);
         }
     }
 }

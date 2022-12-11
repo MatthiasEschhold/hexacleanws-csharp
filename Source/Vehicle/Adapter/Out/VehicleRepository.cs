@@ -5,9 +5,16 @@ namespace Hexacleanws.Source.Vehicle.Adapter.Out
 {
     public class VehicleRepository : VehicleDbQuery
     {
+        private readonly VehicleToVehicleDbEntityMapper Mapper;
+
+        public VehicleRepository(VehicleToVehicleDbEntityMapper mapper)
+        {
+            Mapper = mapper;
+        }
+
         public VehicleRootEntity FindVehicleByVin(Vin vin)
         {
-            return new VehicleRootEntity(new Vin("WP0ZZZ99ZTS392155"));
+            return Mapper.MapVehicleDbEntityToVehicle(FindVehicleDbEntity(vin));
         }
 
         private VehicleDbEntity FindVehicleDbEntity(Vin vin)

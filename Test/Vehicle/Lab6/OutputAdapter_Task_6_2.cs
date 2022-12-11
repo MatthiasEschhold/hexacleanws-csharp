@@ -5,7 +5,6 @@ using Hexacleanws.Source.Vehicle.Domain.Model;
 using Hexacleanws.Source.Vehicle.UseCase.In;
 using Hexacleanws.Vehicle.Test;
 using Moq;
-using Newtonsoft.Json.Linq;
 using Xunit;
 
 namespace clean_architecture_mapping_demo.Test.Vehicle.Lab6

@@ -29,7 +29,7 @@ namespace Hexacleanws.Source.Parts.Catalogue.Appservice
         public ExplosionChart Find(PartsCategoryCode partsCategoryCode, string vin)
         {
             //Add ypur code to implement the application service pattern here
-            VehicleData vehicle = VehicleToOriginVehicleMapper.MapVehicleRootEntityToVehicleData(VehicleQuery.FindByVin(new Vin(vin)));
+            VehicleData vehicle = new VehicleToOriginVehicleMapper().MapVehicleRootEntityToVehicleData(VehicleQuery.FindByVin(new Vin(vin)));
             ExplosionChart explosionChart = FindExplosionChart.Find(partsCategoryCode, vehicle.VehicleModelType, vehicle.Has2GSupport);
 
             //some domain logic located in the domain service respectively in the root entity

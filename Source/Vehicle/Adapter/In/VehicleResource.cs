@@ -1,0 +1,7 @@
+﻿namespace Hexacleanws.Source.Vehicle.Adapter.In
+{
+    public class VehicleResource
+    {
+        public string Vin { get; set; }
+    }
+}

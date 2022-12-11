@@ -10,5 +10,12 @@ namespace Hexacleanws.Source.Vehicle.Adapter.Out
             return new VehicleRootEntity(new Vin("WP0ZZZ99ZTS392155"));
         }
 
+        private VehicleDbEntity FindVehicleDbEntity(Vin vin)
+        {
+            VehicleDbEntity dbEntity = new VehicleDbEntity();
+            dbEntity.Vin = vin.Value;
+            return dbEntity;
+        }
+
     }
 }

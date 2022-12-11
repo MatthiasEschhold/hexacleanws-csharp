@@ -22,15 +22,15 @@
             VehicleMasterData = vehicleMasterData;
             Validate();
             ValidateVehicleMasterData();
-            determineHas2GSupport(VehicleMasterData.EquipmentList);
         }
 
         public void AddVehicleMasterData(VehicleMasterData vehicleMasterData)
         {
             VehicleMasterData = vehicleMasterData;
             ValidateVehicleMasterData();
-            determineHas2GSupport(VehicleMasterData.EquipmentList);
         }
+
+        public void Update2GSupport(bool has2GSupport) => Has2GSupport = has2GSupport;
 
         private void ValidateVehicleMasterData()
         {
@@ -46,20 +46,6 @@
             {
                 throw new Exception("Vin and / or vehicle motion data are not valid");
             }
-        }
-
-        private void determineHas2GSupport(List<Equipment> equipmentList)
-        {
-            Has2GSupport = false;
-            foreach (Equipment e in equipmentList)
-            {
-                if (e.Code.Value.Equals("GS200"))
-                {
-                    Has2GSupport = true;
-                    break;
-                }
-            }
-
         }
 
         public override bool Equals(object? obj)

@@ -1,12 +1,13 @@
-﻿using Hexacleanws.Source.Vehicle.Domain.Model;
+﻿using Hexacleanws.Source.Vehicle.Domain.dto;
+using Hexacleanws.Source.Vehicle.Domain.Model;
 
 namespace Hexacleanws.Source.Vehicle.Adapter.Out.ServiceClient
 {
     public class VehicleMasterDataToVehicleDataDtoMapper
     {
-        public VehicleMasterData MapVehicleDataDtoToVehicleMasterData(VehicleDataDto dto)
+        public VehicleMasterDataDomainDto MapVehicleDataDtoToVehicleMasterData(VehicleDataDto dto)
         {
-            return new VehicleMasterData(mapToEquipmentList(dto.EquipmentList),
+            return new VehicleMasterDataDomainDto(mapToEquipmentList(dto.EquipmentList),
                 new VehicleModel(dto.BaumusterDescription, dto.Baumuster), new SerialNumber(dto.SerialNumber),
 mapMileageUnitValue(dto));
 
@@ -17,9 +18,9 @@ mapMileageUnitValue(dto));
             return new MileageUnit(dto.MileageUnit == MileageUnitValue.KM.ToString() ? MileageUnitValue.KM : MileageUnitValue.MILES);
         }
 
-        private List<Equipment> mapToEquipmentList(EquipmentListDto equipmentList)
+        private List<string> mapToEquipmentList(EquipmentListDto equipmentList)
         {
-            List<Equipment> list = new List<Equipment>();
+            List<string> list = new List<string>();
             foreach (EquipmentDto e in equipmentList.List)
             {
                 list.Add(mapToEquipment(e));
@@ -27,9 +28,9 @@ mapMileageUnitValue(dto));
             return list;
         }
 
-        private Equipment mapToEquipment(EquipmentDto dto)
+        private string mapToEquipment(EquipmentDto dto)
         {
-            return new Equipment(new EquipmentCode(dto.Code), dto.Name);
+            return dto.Code;
         }
     }
 }

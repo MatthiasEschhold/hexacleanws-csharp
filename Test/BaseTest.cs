@@ -57,39 +57,16 @@ namespace Hexacleanws.Vehicle.Test
 
         protected VehicleMasterData CreateVehicleMasterData()
         {
-            return new VehicleMasterData(CreateEquipmentList(),
+            return new VehicleMasterData(
                 new VehicleModel(VEHICLE_MODEL_DESCRIPTION_TEST_VALUE, VEHICLE_MODEL_TYPE_TEST_VALUE),
                 new SerialNumber(SERIAL_NUMBER_TEST_VALUE), new MileageUnit(MileageUnitValue.KM));
         }
 
         protected VehicleMasterData CreateVehicleMasterDataWithout2G()
         {
-            return new VehicleMasterData(CreateEquipmentListWithout2G(),
+            return new VehicleMasterData(
                 new VehicleModel(VEHICLE_MODEL_DESCRIPTION_TEST_VALUE, VEHICLE_MODEL_TYPE_TEST_VALUE),
                 new SerialNumber(SERIAL_NUMBER_TEST_VALUE), new MileageUnit(MileageUnitValue.KM));
-        }
-
-        private List<Equipment> CreateEquipmentListWithout2G()
-        {
-            List<Equipment> equipmentList = new List<Equipment> {
-            CreateEquipment("LT317", "Live Traffic"),
-            CreateEquipment("GS400", "4G Adapter"),
-            CreateEquipment("KL457", "Sport Chassis M Deluxe")};
-            return equipmentList;
-        }
-
-        protected List<Equipment> CreateEquipmentList()
-        {
-            List<Equipment> equipmentList = new List<Equipment> {
-            CreateEquipment("LT317", "Live Traffic"),
-            CreateEquipment("GS200", "2G Adapter"),
-            CreateEquipment("KL457", "Sport Chassis M Deluxe")};
-            return equipmentList;
-        }
-
-        private Equipment CreateEquipment(String code, String description)
-        {
-            return new Equipment(new EquipmentCode(code),  description);
         }
 
         protected VehicleMotionData CreateVehicleMotionData()

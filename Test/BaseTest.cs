@@ -48,12 +48,6 @@ namespace Hexacleanws.Vehicle.Test
             return new VehicleRootEntity(new Vin(VIN));
         }
 
-        /*protected VehicleDbEntity CreateVehicleDbEntity()
-        {
-            VehicleDbEntity dbEntity = new VehicleDbEntity();
-            dbEntity.Vin = VIN;
-            return dbEntity;
-        }*/
 
         /*protected VehicleResource CreateVehicleResource()
         {

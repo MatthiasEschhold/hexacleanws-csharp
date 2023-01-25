@@ -1,6 +1,4 @@
-﻿/*
-using Hexacleanws.Source.Vehicle.Adapter.In;
-using Hexacleanws.Source.Vehicle.Adapter.In.Web;
+﻿/*using Hexacleanws.Source.Vehicle.Adapter.In;
 using Hexacleanws.Source.Vehicle.Domain.Model;
 using Xunit;
 
@@ -25,7 +23,13 @@ namespace Hexacleanws.Vehicle.Test.Lab3
             Assert.Equal(vehicle.Vin, CreateVehicleResource().Vin);
         }
 
-    }
-}
 
-*/
+        private VehicleResource CreateVehicleResource()
+        {
+            VehicleResource resource = new VehicleResource();
+            resource.Vin = VIN;
+            return resource;
+        }
+
+    }
+}*/

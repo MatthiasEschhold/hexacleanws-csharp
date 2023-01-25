@@ -1,5 +1,4 @@
-﻿/*
-using Hexacleanws.Source.Vehicle.Adapter.Out;
+﻿/*using Hexacleanws.Source.Vehicle.Adapter.Out;
 using Hexacleanws.Source.Vehicle.Domain.Model;
 using Xunit;
 
@@ -24,5 +23,5 @@ namespace Hexacleanws.Vehicle.Test.Vehicle.Lab3
             return new VehicleRepository(new VehicleToVehicleDbEntityMapper());
         }
     }
-}
-*/
+}*/
+

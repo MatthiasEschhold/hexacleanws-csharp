@@ -16,7 +16,7 @@ namespace Hexacleanws.Test.Vehicle.lab
         [Fact]
         void should_throw_a_exception_due_to_null_for_vin()
         {
-            Assert.Throws<ArgumentNullException>(() => new VehicleRootEntity(null));
+            Assert.Throws<Exception>(() => new VehicleRootEntity(null));
         }
 
         [Fact]

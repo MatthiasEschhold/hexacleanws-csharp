@@ -1,5 +1,4 @@
-﻿/*
-using Hexacleanws.Source.Vehicle.Adapter.Out;
+﻿/*using Hexacleanws.Source.Vehicle.Adapter.Out;
 using Hexacleanws.Source.Vehicle.Domain.Model;
 using Xunit;
 
@@ -20,7 +19,12 @@ namespace Hexacleanws.Vehicle.Test.Lab3
             return new VehicleToVehicleDbEntityMapper().MapVehicleDbEntityToVehicle(dbEntity);
         }
 
-    }
-}
+        private VehicleDbEntity CreateVehicleDbEntity()
+        {
+            VehicleDbEntity dbEntity = new VehicleDbEntity();
+            dbEntity.Vin = VIN;
+            return dbEntity;
+        }
 
-*/
+    }
+}*/

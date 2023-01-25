@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using Hexacleanws.Source.Vehicle.Domain.Model;
+using Microsoft.OpenApi.Validations;
 
 namespace Hexacleanws.Source.Vehicle.Adapter.In.Web
 {
@@ -19,17 +20,52 @@ namespace Hexacleanws.Source.Vehicle.Adapter.In.Web
                     .ForPath(dest => dest.MileageUnit, opt => opt.MapFrom(s => s.VehicleMasterData.MileageUnit.Value.ToString()))
                     .ForPath(dest => dest.Mileage, opt => opt.MapFrom(s => s.VehicleMotionData.Mileage.Value))
                     .ForPath(dest => dest.VehicleModelName, opt => opt.MapFrom(s => s.VehicleMasterData.VehicleModel.ModelDescription))
-                    .ForPath(dest => dest.VehicleModelType, opt => opt.MapFrom(s => s.VehicleMasterData.VehicleModel.ModelType)); ;
-                //equipment...
+                    .ForPath(dest => dest.VehicleModelType, opt => opt.MapFrom(s => s.VehicleMasterData.VehicleModel.ModelType))
+                    .ForPath(dest => dest.EquipmentList, opt => opt.MapFrom(s => CreateEquipmentResourceList(s.VehicleMasterData.EquipmentList)));
+
                 cfg.CreateMap<VehicleResource, VehicleRootEntity>()
-                    .ForPath(dest => dest.Vin.Value, opt => opt.MapFrom(s => s.Vin))
-                    .ForPath(dest => dest.VehicleMotionData.Mileage, opt => opt.MapFrom(s => s.Mileage))
-                    .ForPath(dest => dest.VehicleMasterData.VehicleModel.ModelDescription, opt => opt.MapFrom(s => s.VehicleModelName));
+                    .ForCtorParam("vin", opt => opt.MapFrom(src => new Vin(src.Vin)))
+                    .ForCtorParam("vehicleMotionData", opt => opt.MapFrom(src => CreateVehicleMotionData(src)))
+                    .ForCtorParam("vehicleMasterData", opt => opt.MapFrom(src => CreateVehicleMasterData(src)));
 
             });
 
             Mapper = new Mapper(Config);
 
+        }
+
+        private List<Equipment> CreateEquipmentList(List<EquipmentResource> equipmentList)
+        {
+            var entityList = new List<Equipment>();
+            foreach (EquipmentResource equipment in equipmentList)
+            {
+                entityList.Add(new Equipment(new EquipmentCode(equipment.Code), equipment.Description));
+            }
+            return entityList;
+        }
+
+        private List<EquipmentResource> CreateEquipmentResourceList(List<Equipment> equipmentList)
+        {
+            var resourceList = new List<EquipmentResource>();
+            foreach(Equipment equipment in equipmentList)
+            {
+                var resource = new EquipmentResource();
+                resource.Code = equipment.Code.Value;
+                resource.Description = equipment.Description;
+                resourceList.Add(new EquipmentResource());
+            }
+            return resourceList;
+        }
+
+        private VehicleMotionData CreateVehicleMotionData(VehicleResource resource)
+        {
+            return new VehicleMotionData(new LicensePlate(resource.LicensePlate), new Mileage(resource.Mileage));
+        }
+        private VehicleMasterData CreateVehicleMasterData(VehicleResource resource)
+        {
+            var mileageUnitValue = resource.MileageUnit.Equals(MileageUnitValue.KM) ? MileageUnitValue.KM: MileageUnitValue.MILES;
+            return new VehicleMasterData(CreateEquipmentList(resource.EquipmentList), new VehicleModel(resource.VehicleModelName, resource.VehicleModelType),
+                            new SerialNumber(resource.SerialNumber), new MileageUnit(mileageUnitValue));
         }
 
         public VehicleResource MapVehicleToVehicleResource(VehicleRootEntity entity)

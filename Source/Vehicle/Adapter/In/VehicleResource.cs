@@ -12,7 +12,7 @@ namespace Hexacleanws.Source.Vehicle.Adapter.In
         public string LicensePlate { get; set; }
         public string SerialNumber { get; set; }
 
-        public List<EquipmentResource> equipmentList { get; set; }
+        public List<EquipmentResource> EquipmentList { get; set; }
             
     }
 }

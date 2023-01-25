@@ -98,7 +98,7 @@ namespace Hexacleanws.Vehicle.Test
             vehicle.VehicleModelName = VEHICLE_MODEL_DESCRIPTION_TEST_VALUE;
             vehicle.SerialNumber = SERIAL_NUMBER_TEST_VALUE;
             vehicle.MileageUnit = MileageUnitValue.KM.ToString();
-            vehicle.equipmentList = CreateEquipmentResourceList();
+            vehicle.EquipmentList = CreateEquipmentResourceList();
             vehicle.LicensePlate = LICENSE_PLATE_TEST_VALUE;
             return vehicle;
         }

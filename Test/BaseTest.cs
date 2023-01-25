@@ -95,7 +95,7 @@ namespace Hexacleanws.Vehicle.Test
             VehicleResource vehicle = new VehicleResource();
             vehicle.Vin = VIN;
             vehicle.VehicleModelType = VEHICLE_MODEL_TYPE_TEST_VALUE;
-            vehicle.VehicleModelDescription = VEHICLE_MODEL_DESCRIPTION_TEST_VALUE;
+            vehicle.VehicleModelName = VEHICLE_MODEL_DESCRIPTION_TEST_VALUE;
             vehicle.SerialNumber = SERIAL_NUMBER_TEST_VALUE;
             vehicle.MileageUnit = MileageUnitValue.KM.ToString();
             vehicle.equipmentList = CreateEquipmentResourceList();

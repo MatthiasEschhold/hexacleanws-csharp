@@ -25,7 +25,7 @@ namespace Hexacleanws.Test.Vehicle.Vehicle.Lab4
             Assert.Equal(vehicle.VehicleMasterData.MileageUnit.Value.ToString(), actualVehicle.MileageUnit);
             Assert.Equal(vehicle.VehicleMasterData.SerialNumber.Value, actualVehicle.SerialNumber);
             Assert.Equal(vehicle.VehicleMasterData.VehicleModel.ModelType, actualVehicle.VehicleModelType);
-            Assert.Equal(vehicle.VehicleMasterData.VehicleModel.ModelDescription, actualVehicle.VehicleModelDescription);
+            Assert.Equal(vehicle.VehicleMasterData.VehicleModel.ModelDescription, actualVehicle.VehicleModelName);
             Assert.Equal(vehicle.VehicleMotionData.Mileage.Value, actualVehicle.Mileage);
             Assert.Equal(vehicle.VehicleMotionData.LicensePlate.Value, actualVehicle.LicensePlate);
         }

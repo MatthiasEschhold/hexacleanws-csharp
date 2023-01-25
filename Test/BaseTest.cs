@@ -1,8 +1,6 @@
 ﻿using ArchUnitNET.Domain;
 using ArchUnitNET.Loader;
-using Hexacleanws.Source.Vehicle.Adapter.In;
 using Hexacleanws.Source.Vehicle.Adapter.In.Web;
-using Hexacleanws.Source.Vehicle.Adapter.Out.db;
 using Hexacleanws.Source.Vehicle.Domain.Model;
 
 namespace Hexacleanws.Vehicle.Test
@@ -81,16 +79,16 @@ namespace Hexacleanws.Vehicle.Test
                 new Mileage(MILEAGE_TEST_VALUE));
         }
 
-        protected VehicleDbEntity CreateVehicleDbEntity()
+       /* protected VehicleDbEntity CreateVehicleDbEntity()
         {
             VehicleDbEntity dbEntity = new VehicleDbEntity();
             dbEntity.Vin = VIN;
             dbEntity.LicensePlate = LICENSE_PLATE_TEST_VALUE;
             dbEntity.Mileage = MILEAGE_TEST_VALUE;
             return dbEntity;
-        }
+        }*/
 
-        protected VehicleResource CreateVehicleResource()
+       /* protected VehicleResource CreateVehicleResource()
         {
             VehicleResource vehicle = new VehicleResource();
             vehicle.Vin = VIN;
@@ -102,7 +100,7 @@ namespace Hexacleanws.Vehicle.Test
             vehicle.LicensePlate = LICENSE_PLATE_TEST_VALUE;
             return vehicle;
         }
-
+       */
         protected List<EquipmentResource> CreateEquipmentResourceList()
         {
             List<EquipmentResource> equipmentList = new List<EquipmentResource> {

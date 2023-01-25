@@ -3,7 +3,6 @@ using Hexacleanws.Source.Vehicle.Adapter.In;
 using Hexacleanws.Source.Vehicle.Adapter.In.Web;
 using Hexacleanws.Source.Vehicle.Domain.Model;
 using Hexacleanws.Source.Vehicle.UseCase.In;
-using Hexacleanws.Source.Vehicle.UseCase.Out;
 using Moq;
 using Xunit;
 

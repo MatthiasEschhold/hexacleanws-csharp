@@ -6,7 +6,7 @@
 
         public VehicleRootEntity(Vin vin)
         {
-            Vin = vin ?? throw new ArgumentNullException(nameof(vin));
+            Vin = vin ?? throw new Exception(nameof(vin));
         }
 
         public override bool Equals(object? obj)

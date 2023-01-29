@@ -1,6 +1,5 @@
 ﻿using AutoMapper;
 using Hexacleanws.Source.Vehicle.Domain.Model;
-using Microsoft.OpenApi.Validations;
 
 namespace Hexacleanws.Source.Vehicle.Adapter.In.Web
 {

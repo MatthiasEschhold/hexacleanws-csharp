@@ -1,5 +1,7 @@
 ﻿/*using Hexacleanws.Source.Vehicle.Domain.Model;
+using Hexacleanws.Source.Vehicle.UseCase.In;
 using Hexacleanws.Vehicle.Test;
+using Moq;
 using Xunit;
 
 namespace Hexacleanws.Test.Vehicle.Lab2

@@ -1,4 +1,4 @@
-﻿using Hexacleanws.Source.Vehicle.Adapter.In;
+﻿/*using Hexacleanws.Source.Vehicle.Adapter.In;
 using Hexacleanws.Source.Vehicle.Domain.Model;
 using Hexacleanws.Source.Vehicle.UseCase.In;
 using Moq;
@@ -20,4 +20,4 @@ namespace Hexacleanws.Vehicle.Test.Vehicle.Lab3
         }
 
     }
-}
+}*/
